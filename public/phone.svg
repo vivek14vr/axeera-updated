@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="840" viewBox="0 0 420 840" fill="none">
+  <defs>
+    <linearGradient id="shell" x1="62" y1="24" x2="370" y2="820" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FAF8"/>
+      <stop offset="1" stop-color="#B8D4D0"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="86" y1="72" x2="334" y2="770" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5F0E8"/>
+      <stop offset="1" stop-color="#E6F0ED"/>
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="420" height="840" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="24" stdDeviation="18" flood-color="#092E36" flood-opacity=".32"/>
+    </filter>
+  </defs>
+  <g filter="url(#shadow)">
+    <rect x="26" y="12" width="368" height="816" rx="54" fill="url(#shell)"/>
+    <rect x="39" y="25" width="342" height="790" rx="44" fill="#0B2930"/>
+    <rect x="54" y="40" width="312" height="760" rx="34" fill="url(#screen)"/>
+    <rect x="143" y="52" width="134" height="25" rx="13" fill="#0B2930"/>
+    <circle cx="278" cy="64" r="4" fill="#C9654F"/>
+    <text x="78" y="116" fill="#0F4C5C" font-family="Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="2">MERIDIAN HEALTH</text>
+    <text x="78" y="154" fill="#162321" font-family="Arial, sans-serif" font-size="25" font-weight="700">Good morning, Sarah</text>
+    <text x="78" y="180" fill="#52615E" font-family="Arial, sans-serif" font-size="13">Your care, in one clearer place.</text>
+    <rect x="78" y="214" width="264" height="124" rx="22" fill="#0F4C5C"/>
+    <text x="98" y="246" fill="#B8D4D0" font-family="Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1">NEXT APPOINTMENT</text>
+    <text x="98" y="280" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="24" font-weight="700">Today, 10:30 AM</text>
+    <text x="98" y="308" fill="#D9E9E6" font-family="Arial, sans-serif" font-size="13">Dr. Maya Patel · Cardiology</text>
+    <circle cx="307" cy="280" r="20" fill="#C9654F"/>
+    <path d="M299 280h16M307 272v16" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+    <text x="78" y="386" fill="#162321" font-family="Arial, sans-serif" font-size="16" font-weight="700">Your care plan</text>
+    <rect x="78" y="408" width="124" height="116" rx="18" fill="#FFFFFF"/>
+    <circle cx="106" cy="440" r="14" fill="#E8F0ED"/>
+    <path d="M100 440l4 4 8-9" stroke="#0F4C5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="96" y="479" fill="#162321" font-family="Arial, sans-serif" font-size="13" font-weight="700">Medications</text>
+    <text x="96" y="501" fill="#52615E" font-family="Arial, sans-serif" font-size="11">Up to date</text>
+    <rect x="218" y="408" width="124" height="116" rx="18" fill="#FFFFFF"/>
+    <circle cx="246" cy="440" r="14" fill="#F7E8E2"/>
+    <path d="M239 441h14M246 434v14" stroke="#C9654F" stroke-width="2" stroke-linecap="round"/>
+    <text x="236" y="479" fill="#162321" font-family="Arial, sans-serif" font-size="13" font-weight="700">Care team</text>
+    <text x="236" y="501" fill="#52615E" font-family="Arial, sans-serif" font-size="11">3 connected</text>
+    <rect x="78" y="560" width="264" height="88" rx="18" fill="#FFFFFF"/>
+    <text x="98" y="590" fill="#52615E" font-family="Arial, sans-serif" font-size="12">Wellbeing trend</text>
+    <path d="M98 623C116 603 131 634 149 614C166 595 181 617 199 600C215 585 229 610 245 590C260 571 280 592 322 570" stroke="#C9654F" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="322" cy="570" r="5" fill="#C9654F"/>
+    <rect x="78" y="686" width="264" height="54" rx="18" fill="#DDECE8"/>
+    <circle cx="104" cy="713" r="12" fill="#0F4C5C"/>
+    <path d="M99 713l4 4 7-8" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="127" y="718" fill="#0F4C5C" font-family="Arial, sans-serif" font-size="13" font-weight="700">All systems ready</text>
+  </g>
+</svg>

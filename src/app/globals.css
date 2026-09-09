@@ -1,26 +1,583 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+@theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-space-grotesk);
+
+  --color-background: #f8f6f1;
+  --color-foreground: #17232b;
+  --color-muted: #eceae5;
+  --color-muted-foreground: #58656b;
+  --color-border: #d9dedc;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #fafafa;
+  --color-primary: #f0523a;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #f8dfd8;
+  --color-secondary-foreground: #7d281e;
+  --color-accent: #f0523a;
+  --color-accent-foreground: #ffffff;
+  --color-destructive: #b91c1c;
+  --color-destructive-foreground: #ffffff;
+  --color-success: #166534;
+  --color-success-foreground: #ffffff;
+  --color-warning: #854d0e;
+  --color-warning-foreground: #ffffff;
+  --color-ring: #e94b35;
+
+  /* Brand surface tokens: the shared source of truth for page sections and product visuals. */
+  --color-page: #f8f6f1;
+  --color-ink: #17232b;
+  --color-deep: #182127;
+  --color-deep-rgb: 24 33 39;
+  --color-accent-bright: #f0523a;
+  --color-accent-rgb: 240 82 58;
+  --color-accent-soft: #f8dfd8;
+  --color-phone-shell: #d8d9d4;
+  --color-phone-screen: #edf0ea;
+  --color-phone-ink: #182127;
+  --color-phone-card: #182127;
+  --color-phone-success: #e4ebe5;
+  --color-phone-light: #fffdf9;
+  --color-phone-muted: #52615e;
+  --color-work: #11181d;
+  --color-on-dark: #ffffff;
+  --color-phone-highlight: #fbf8f0;
+  --color-phone-accent-soft: #f8dfd8;
+
+  --radius-xs: 0.125rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-full: 9999px;
+
+  --spacing-0: 0;
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-7: 1.75rem;
+  --spacing-8: 2rem;
+  --spacing-9: 2.25rem;
+  --spacing-10: 2.5rem;
+  --spacing-12: 3rem;
+  --spacing-14: 3.5rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+  --spacing-24: 6rem;
+  --spacing-28: 7rem;
+  --spacing-32: 8rem;
+  --spacing-36: 9rem;
+  --spacing-40: 10rem;
+  --spacing-44: 11rem;
+  --spacing-48: 12rem;
+  --spacing-52: 13rem;
+  --spacing-56: 14rem;
+  --spacing-60: 15rem;
+  --spacing-64: 16rem;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  --text-7xl: 4.5rem;
+  --text-8xl: 6rem;
+  --text-9xl: 8rem;
+
+  --leading-none: 1;
+  --leading-tight: 1.1;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slower: 700ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --font-geist-sans: "Geist", system-ui, sans-serif;
+    --font-geist-mono: "Geist Mono", monospace;
+    --font-space-grotesk: "Space Grotesk", system-ui, sans-serif;
+  }
+
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: clip;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .container {
+    width: 100%;
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--spacing-6);
+    padding-right: var(--spacing-6);
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: var(--spacing-8);
+      padding-right: var(--spacing-8);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: var(--spacing-10);
+      padding-right: var(--spacing-10);
+    }
+  }
+
+  .container-wide {
+    max-width: 96rem;
+  }
+
+  .container-narrow {
+    max-width: 48rem;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .animate-in {
+    animation: animateIn var(--transition-slow) ease-out forwards;
+  }
+
+  @keyframes animateIn {
+    from {
+      opacity: 0;
+      transform: translateY(1.5rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .focus-visible-ring {
+    outline: none;
+  }
+
+  .focus-visible-ring:focus-visible {
+    outline: 3px solid var(--color-ring);
+    outline-offset: 3px;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .phone-shadow {
+    filter: drop-shadow(0 30px 28px rgb(var(--color-deep-rgb) / 28%));
+  }
+
+  .accent-dot {
+    background-color: var(--color-accent-bright);
+    box-shadow: 0 0 0 4px rgb(var(--color-accent-rgb) / 18%);
+  }
+}
+
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: var(--radius-lg);
+    padding: 0.75rem 1.5rem;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    transition: all var(--transition-normal);
+    min-height: 44px;
+    cursor: pointer;
+  }
+
+  .btn:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .btn:focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
+
+  .btn-primary:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  .btn-secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-secondary-foreground);
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-secondary);
+    opacity: 0.8;
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary:active {
+    transform: translateY(0);
+  }
+
+  .btn-outline {
+    border: 1px solid var(--color-border);
+    background-color: transparent;
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-muted);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline:active {
+    transform: translateY(0);
+  }
+
+  .btn-ghost {
+    background-color: transparent;
+  }
+
+  .btn-ghost:hover {
+    background-color: var(--color-muted);
+    box-shadow: var(--shadow-md);
+  }
+
+  .btn-ghost:active {
+    transform: translateY(0);
+  }
+
+  .btn-link {
+    padding: 0;
+    color: var(--color-primary);
+    text-underline-offset: 4px;
+  }
+
+  .btn-link:hover {
+    text-decoration: underline;
+  }
+
+  .btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: var(--text-xs);
+  }
+
+  .btn-lg {
+    padding: 1rem 2rem;
+    font-size: var(--text-base);
+  }
+
+  .btn-xl {
+    padding: 1.25rem 2.5rem;
+    font-size: var(--text-lg);
+  }
+
+  .link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: var(--color-primary);
+    font-weight: 500;
+    transition: color var(--transition-fast);
+  }
+
+  .link:hover {
+    color: var(--color-primary);
+    opacity: 0.7;
+  }
+
+  .link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform var(--transition-fast);
+  }
+
+  .link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  .heading-display {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.05em;
+    line-height: 1.1;
+  }
+
+  .heading-1 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+
+  .heading-2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.375;
+  }
+
+  .heading-3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 1.375;
+  }
+
+  .heading-4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 1.5;
+  }
+
+  .body-lg {
+    font-size: var(--text-lg);
+    line-height: 1.625;
+  }
+
+  .body {
+    font-size: var(--text-base);
+    line-height: 1.5;
+  }
+
+  .body-sm {
+    font-size: var(--text-sm);
+    line-height: 1.5;
+  }
+
+  .caption {
+    font-size: var(--text-xs);
+    line-height: 1.5;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .label {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  @media (min-width: 768px) {
+    .section {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section {
+      padding-top: 8rem;
+      padding-bottom: 8rem;
+    }
+  }
+
+  .section-sm {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-sm {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-sm {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+  }
+
+  .section-lg {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-lg {
+      padding-top: 9rem;
+      padding-bottom: 9rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-lg {
+      padding-top: 11rem;
+      padding-bottom: 11rem;
+    }
+  }
+
+  .grid-responsive {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .grid-responsive {
+      gap: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .grid-responsive {
+      gap: 2.5rem;
+    }
+  }
+
+  .grid-2 {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .grid-2 {
+      gap: 2.5rem;
+    }
+  }
+
+  .grid-3 {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .grid-3 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2.5rem;
+    }
+  }
+
+  .grid-4 {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .grid-4 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .grid-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 2.5rem;
+    }
+  }
 }
