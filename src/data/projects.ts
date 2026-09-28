@@ -123,7 +123,7 @@ export const projects: Project[] = [
   },
   {
     slug: "sv-enterprises-inventory",
-    title: "SV Enterprises Inventory",
+    title: "Inventory Management System",
     shortDescription: "A focused warehouse inventory app for adding, selling, receiving, and reporting stock across multiple locations.",
     description: "SV Enterprises needed a straightforward internal tool that warehouse teams could use without navigating a heavy enterprise interface. The product is organized around the everyday actions that keep stock moving, with separate access for warehouse and admin workflows.",
     industry: "Operations & Enterprise",
