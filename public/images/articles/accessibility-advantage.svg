@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#f5f5f5"/>
-  <text x="600" y="315" font-family="system-ui, sans-serif" font-size="48" font-weight="600" fill="#0a0a0a" text-anchor="middle" dominant-baseline="middle">Accessibility Advantage</text>
-  <text x="600" y="370" font-family="system-ui, sans-serif" font-size="24" fill="#737373" text-anchor="middle" dominant-baseline="middle">Article Cover</text>
+  <defs><radialGradient id="halo"><stop stop-color="#f0523a" stop-opacity=".4"/><stop offset="1" stop-color="#f0523a" stop-opacity="0"/></radialGradient></defs>
+  <rect width="1200" height="630" fill="#17232b"/><text x="72" y="80" fill="#f0523a" font-family="system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="4">DESIGN / INCLUSION</text><text x="72" y="552" fill="#f9f5ed" font-family="system-ui, sans-serif" font-size="43" font-weight="700">ACCESSIBILITY ADVANTAGE</text>
+  <circle cx="820" cy="300" r="250" fill="url(#halo)"/><g fill="none" stroke="#f9f5ed" stroke-width="4" opacity=".75"><circle cx="820" cy="300" r="190"/><circle cx="820" cy="300" r="130"/><circle cx="820" cy="300" r="70"/></g><g fill="#f9f5ed"><circle cx="820" cy="218" r="28"/><path d="M785 270c0-18 16-32 35-32s35 14 35 32v86h-24v-53h-22v53h-24z"/><rect x="754" y="275" width="132" height="16" rx="8"/><path d="M780 347 738 420h30l52-73zM860 347l42 73h-30l-52-64z"/></g><g fill="#f0523a"><circle cx="625" cy="300" r="10"/><circle cx="1015" cy="300" r="10"/><circle cx="820" cy="110" r="10"/><circle cx="820" cy="490" r="10"/></g>
 </svg>

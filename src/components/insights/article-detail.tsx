@@ -1,5 +1,6 @@
 "use client";
 
+import { Fragment, type ElementType, type ReactNode } from "react";
 import { motion } from "motion/react";
 import Link from "next/link";
 import Image from "next/image";
@@ -17,6 +18,132 @@ import { formatDate } from "@/lib/utils";
 interface ArticleDetailContentProps {
   article: Article;
   relatedArticles: Article[];
+}
+
+function renderInlineMarkdown(value: string): ReactNode[] {
+  const nodes: ReactNode[] = [];
+  const tokenPattern = /(\[([^\]]+)\]\(([^)]+)\)|\*\*([^*]+)\*\*|`([^`]+)`|\*([^*]+)\*)/g;
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = tokenPattern.exec(value)) !== null) {
+    if (match.index > lastIndex) {
+      nodes.push(value.slice(lastIndex, match.index));
+    }
+
+    if (match[2] && match[3]) {
+      const href = match[3];
+      const link = href.startsWith("/") ? (
+        <Link href={href}>{match[2]}</Link>
+      ) : (
+        <a href={href} target="_blank" rel="noopener noreferrer">{match[2]}</a>
+      );
+      nodes.push(<Fragment key={match.index}>{link}</Fragment>);
+    } else if (match[4]) {
+      nodes.push(<strong key={match.index}>{renderInlineMarkdown(match[4])}</strong>);
+    } else if (match[5]) {
+      nodes.push(<code key={match.index}>{match[5]}</code>);
+    } else if (match[6]) {
+      nodes.push(<em key={match.index}>{renderInlineMarkdown(match[6])}</em>);
+    }
+
+    lastIndex = tokenPattern.lastIndex;
+  }
+
+  if (lastIndex < value.length) {
+    nodes.push(value.slice(lastIndex));
+  }
+
+  return nodes;
+}
+
+function isMarkdownBlockStart(line: string): boolean {
+  return /^(#{1,6}\s+|```|[-*]\s+|\d+\.\s+|---+$)/.test(line);
+}
+
+function renderMarkdown(markdown: string): ReactNode[] {
+  const lines = markdown.trim().split(/\r?\n/);
+  const blocks: ReactNode[] = [];
+  let index = 0;
+
+  while (index < lines.length) {
+    const line = lines[index].trim();
+
+    if (!line) {
+      index += 1;
+      continue;
+    }
+
+    const fence = line.match(/^```(\w*)$/);
+    if (fence) {
+      const language = fence[1];
+      const codeLines: string[] = [];
+      index += 1;
+      while (index < lines.length && !/^```$/.test(lines[index].trim())) {
+        codeLines.push(lines[index]);
+        index += 1;
+      }
+      index += 1;
+      blocks.push(
+        <pre key={`code-${index}`} className="overflow-x-auto rounded-xl bg-foreground p-5 text-sm text-background">
+          <code className={language ? `language-${language}` : undefined}>{codeLines.join("\n")}</code>
+        </pre>
+      );
+      continue;
+    }
+
+    const heading = line.match(/^(#{1,6})\s+(.+)$/);
+    if (heading) {
+      const level = heading[1].length;
+      const HeadingTag = `h${Math.min(level, 6)}` as ElementType;
+      const headingClass = level === 2 ? "text-3xl md:text-4xl" : level === 3 ? "text-2xl" : "text-xl";
+      blocks.push(
+        <HeadingTag key={`heading-${index}`} className={`${headingClass} font-semibold tracking-tight`}>
+          {renderInlineMarkdown(heading[2])}
+        </HeadingTag>
+      );
+      index += 1;
+      continue;
+    }
+
+    if (/^---+$/.test(line)) {
+      blocks.push(<hr key={`rule-${index}`} className="border-border" />);
+      index += 1;
+      continue;
+    }
+
+    if (/^[-*]\s+/.test(line)) {
+      const items: ReactNode[] = [];
+      while (index < lines.length && /^[-*]\s+/.test(lines[index].trim())) {
+        items.push(<li key={index}>{renderInlineMarkdown(lines[index].trim().replace(/^[-*]\s+/, ""))}</li>);
+        index += 1;
+      }
+      blocks.push(<ul key={`list-${index}`} className="list-disc space-y-2 pl-6">{items}</ul>);
+      continue;
+    }
+
+    if (/^\d+\.\s+/.test(line)) {
+      const items: ReactNode[] = [];
+      while (index < lines.length && /^\d+\.\s+/.test(lines[index].trim())) {
+        items.push(<li key={index}>{renderInlineMarkdown(lines[index].trim().replace(/^\d+\.\s+/, ""))}</li>);
+        index += 1;
+      }
+      blocks.push(<ol key={`ordered-list-${index}`} className="list-decimal space-y-2 pl-6">{items}</ol>);
+      continue;
+    }
+
+    const paragraphLines = [line];
+    index += 1;
+    while (index < lines.length) {
+      const nextLine = lines[index].trim();
+      if (!nextLine || isMarkdownBlockStart(nextLine)) break;
+      paragraphLines.push(nextLine);
+      index += 1;
+    }
+    blocks.push(<p key={`paragraph-${index}`}>{renderInlineMarkdown(paragraphLines.join(" "))}</p>);
+  }
+
+  return blocks;
 }
 
 export function ArticleDetailContent({ article, relatedArticles }: ArticleDetailContentProps) {
@@ -135,7 +262,7 @@ export function ArticleDetailContent({ article, relatedArticles }: ArticleDetail
             <div className="lg:col-span-3">
               <FadeUp delay={0.3}>
                 <article className="prose prose-muted max-w-none space-y-8">
-                  <div className="prose prose-muted max-w-none" dangerouslySetInnerHTML={{ __html: article.content }} />
+                  <div className="prose prose-muted max-w-none space-y-6">{renderMarkdown(article.content)}</div>
                 </article>
               </FadeUp>
 
@@ -151,15 +278,15 @@ export function ArticleDetailContent({ article, relatedArticles }: ArticleDetail
               </FadeUp>
 
               <FadeUp delay={0.5} className="mt-12 pt-8 border-t border-border">
-                <div className="flex items-center justify-between p-4 bg-muted/30 rounded-xl">
-                  <div className="flex items-center gap-3">
+                <div className="flex flex-col gap-4 rounded-xl bg-muted/30 p-4 md:flex-row md:items-center md:justify-between">
+                  <div className="flex min-w-0 items-center gap-3 md:w-1/3 md:shrink-0">
                     <img src={article.author.avatar} alt="" className="w-12 h-12 rounded-full" />
-                    <div>
-                      <div className="font-semibold">{article.author.name}</div>
+                    <div className="min-w-0">
+                      <div className="whitespace-nowrap font-semibold">{article.author.name}</div>
                       <div className="text-sm text-muted-foreground">{article.author.role}</div>
                     </div>
                   </div>
-                  <div className="text-sm text-muted-foreground">
+                  <div className="text-sm text-muted-foreground md:max-w-[60%]">
                     {article.author.bio}
                   </div>
                 </div>
@@ -245,7 +372,6 @@ export function ArticleDetailContent({ article, relatedArticles }: ArticleDetail
                 <StaggerItem key={related.slug}>
                   <Link href={`/insights/${related.slug}`} className="block">
                     <motion.div
-                      initial={{ opacity: 0, y: 20 }}
                       whileHover={{ y: -4 }}
                       transition={{ duration: 0.3 }}
                       className="group bg-surface border border-border rounded-2xl overflow-hidden hover:border-primary/50 transition-colors duration-300 h-full flex flex-col"

@@ -1,5 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#f5f5f5"/>
-  <text x="600" y="315" font-family="system-ui, sans-serif" font-size="48" font-weight="600" fill="#0a0a0a" text-anchor="middle" dominant-baseline="middle">Monolith to Microservices</text>
-  <text x="600" y="370" font-family="system-ui, sans-serif" font-size="24" fill="#737373" text-anchor="middle" dominant-baseline="middle">Article Cover</text>
+  <defs>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#f9f5ed" stroke-opacity=".08"/></pattern>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f0523a" stop-opacity=".35"/><stop offset="1" stop-color="#f0523a" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#17232b"/><rect width="1200" height="630" fill="url(#grid)"/>
+  <circle cx="850" cy="210" r="280" fill="url(#glow)"/>
+  <text x="72" y="78" fill="#f0523a" font-family="system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="4">ENGINEERING / 2024</text>
+  <text x="72" y="550" fill="#f9f5ed" font-family="system-ui, sans-serif" font-size="44" font-weight="700">MONOLITH → MICROSERVICES</text>
+  <rect x="90" y="170" width="275" height="275" rx="22" fill="#f9f5ed"/>
+  <rect x="122" y="207" width="211" height="34" rx="8" fill="#17232b"/>
+  <circle cx="144" cy="224" r="6" fill="#f0523a"/><circle cx="166" cy="224" r="6" fill="#f5b85b"/><circle cx="188" cy="224" r="6" fill="#8bbf9f"/>
+  <rect x="122" y="274" width="88" height="118" rx="10" fill="#d9e0dc"/><rect x="228" y="274" width="105" height="20" rx="6" fill="#c4cfca"/><rect x="228" y="310" width="80" height="12" rx="6" fill="#c4cfca"/><rect x="228" y="338" width="92" height="12" rx="6" fill="#c4cfca"/><rect x="228" y="366" width="64" height="12" rx="6" fill="#c4cfca"/>
+  <path d="M400 307H520" stroke="#f0523a" stroke-width="5" stroke-linecap="round"/><path d="m505 290 18 17-18 17" fill="none" stroke="#f0523a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <g stroke="#f9f5ed" stroke-width="3" fill="#23343e"><rect x="590" y="145" width="160" height="120" rx="16"/><rect x="790" y="145" width="160" height="120" rx="16"/><rect x="590" y="305" width="160" height="120" rx="16"/><rect x="790" y="305" width="160" height="120" rx="16"/><rect x="990" y="225" width="120" height="120" rx="16"/></g>
+  <g fill="#f0523a"><circle cx="620" cy="180" r="8"/><circle cx="820" cy="180" r="8"/><circle cx="620" cy="340" r="8"/><circle cx="820" cy="340" r="8"/><circle cx="1020" cy="260" r="8"/></g>
+  <g fill="#f9f5ed" opacity=".8"><rect x="640" y="178" width="76" height="8" rx="4"/><rect x="840" y="178" width="76" height="8" rx="4"/><rect x="640" y="338" width="76" height="8" rx="4"/><rect x="840" y="338" width="76" height="8" rx="4"/><rect x="1040" y="258" width="48" height="8" rx="4"/></g>
+  <g stroke="#f0523a" stroke-width="3" stroke-dasharray="7 8" opacity=".8"><path d="M523 307 590 205"/><path d="M523 307 590 365"/><path d="M523 307 790 205"/><path d="M523 307 790 365"/><path d="M950 205 990 265"/><path d="M950 365 990 305"/></g>
 </svg>

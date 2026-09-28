@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#f5f5f5"/>
-  <text x="600" y="315" font-family="system-ui, sans-serif" font-size="48" font-weight="600" fill="#0a0a0a" text-anchor="middle" dominant-baseline="middle">Performance Budgets</text>
-  <text x="600" y="370" font-family="system-ui, sans-serif" font-size="24" fill="#737373" text-anchor="middle" dominant-baseline="middle">Article Cover</text>
+  <defs><pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#17232b" stroke-opacity=".08"/></pattern></defs>
+  <rect width="1200" height="630" fill="#f9f5ed"/><rect width="1200" height="630" fill="url(#grid)"/>
+  <text x="72" y="80" fill="#f0523a" font-family="system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="4">PERFORMANCE / WEB</text><text x="72" y="552" fill="#17232b" font-family="system-ui, sans-serif" font-size="48" font-weight="700">PERFORMANCE BUDGETS</text>
+  <rect x="120" y="155" width="950" height="270" rx="22" fill="#17232b"/><g stroke="#f9f5ed" stroke-opacity=".15"><path d="M165 205h860M165 265h860M165 325h860M165 385h860"/><path d="M245 180v225M365 180v225M485 180v225M605 180v225M725 180v225M845 180v225M965 180v225"/></g>
+  <path d="M165 355c70-5 85-42 140-34s55 52 120 30 78-116 140-92 72 82 128 50 86-83 150-52 66 45 112 18" fill="none" stroke="#f0523a" stroke-width="8" stroke-linecap="round"/><path d="M165 355c70-5 85-42 140-34s55 52 120 30 78-116 140-92 72 82 128 50 86-83 150-52 66 45 112 18V405H165Z" fill="#f0523a" fill-opacity=".18"/><circle cx="1055" cy="275" r="10" fill="#f0523a"/><text x="170" y="190" fill="#f9f5ed" font-family="system-ui, sans-serif" font-size="16" font-weight="700" letter-spacing="2">BUDGET / P75 LOAD TIME</text>
 </svg>

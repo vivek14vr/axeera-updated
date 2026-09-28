@@ -1,5 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#f5f5f5"/>
-  <text x="600" y="315" font-family="system-ui, sans-serif" font-size="48" font-weight="600" fill="#0a0a0a" text-anchor="middle" dominant-baseline="middle">Design Systems at Scale</text>
-  <text x="600" y="370" font-family="system-ui, sans-serif" font-size="24" fill="#737373" text-anchor="middle" dominant-baseline="middle">Article Cover</text>
+  <defs><pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#17232b" stroke-opacity=".08"/></pattern></defs>
+  <rect width="1200" height="630" fill="#f9f5ed"/><rect width="1200" height="630" fill="url(#grid)"/>
+  <text x="72" y="80" fill="#f0523a" font-family="system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="4">DESIGN / SYSTEMS</text>
+  <text x="72" y="552" fill="#17232b" font-family="system-ui, sans-serif" font-size="44" font-weight="700">DESIGN SYSTEMS AT SCALE</text>
+  <g transform="translate(100 150)"><rect width="360" height="280" rx="24" fill="#17232b"/><text x="36" y="48" fill="#f9f5ed" font-family="system-ui, sans-serif" font-size="18" font-weight="700">TOKENS</text><g transform="translate(36 78)"><rect width="60" height="60" rx="12" fill="#f0523a"/><rect x="76" width="60" height="60" rx="12" fill="#f5b85b"/><rect x="152" width="60" height="60" rx="12" fill="#8bbf9f"/><rect x="228" width="60" height="60" rx="12" fill="#86a9ce"/></g><g fill="#f9f5ed" opacity=".5"><rect x="36" y="180" width="215" height="10" rx="5"/><rect x="36" y="205" width="160" height="10" rx="5"/></g></g>
+  <path d="M510 290h140" stroke="#f0523a" stroke-width="6" stroke-linecap="round"/><path d="m630 270 22 20-22 20" fill="none" stroke="#f0523a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#fffdf9" stroke="#17232b" stroke-width="3"><rect x="700" y="140" width="190" height="120" rx="18"/><rect x="930" y="140" width="190" height="120" rx="18"/><rect x="700" y="300" width="190" height="120" rx="18"/><rect x="930" y="300" width="190" height="120" rx="18"/></g>
+  <g fill="#f0523a"><circle cx="736" cy="180" r="10"/><circle cx="966" cy="180" r="10"/><circle cx="736" cy="340" r="10"/><circle cx="966" cy="340" r="10"/></g><g fill="#17232b" opacity=".65"><rect x="758" y="177" width="92" height="9" rx="4"/><rect x="988" y="177" width="92" height="9" rx="4"/><rect x="758" y="337" width="92" height="9" rx="4"/><rect x="988" y="337" width="92" height="9" rx="4"/></g>
 </svg>

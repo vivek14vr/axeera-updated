@@ -1,5 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#f5f5f5"/>
-  <text x="600" y="315" font-family="system-ui, sans-serif" font-size="48" font-weight="600" fill="#0a0a0a" text-anchor="middle" dominant-baseline="middle">AI in Production</text>
-  <text x="600" y="370" font-family="system-ui, sans-serif" font-size="24" fill="#737373" text-anchor="middle" dominant-baseline="middle">Article Cover</text>
+  <defs><radialGradient id="core"><stop stop-color="#f9f5ed"/><stop offset=".25" stop-color="#f0523a"/><stop offset="1" stop-color="#f0523a" stop-opacity="0"/></radialGradient><pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#f9f5ed" stroke-opacity=".08"/></pattern></defs>
+  <rect width="1200" height="630" fill="#17232b"/><rect width="1200" height="630" fill="url(#grid)"/>
+  <text x="72" y="80" fill="#f0523a" font-family="system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="4">AI / PRODUCTION</text><text x="72" y="552" fill="#f9f5ed" font-family="system-ui, sans-serif" font-size="46" font-weight="700">AI IN PRODUCTION</text>
+  <circle cx="790" cy="300" r="190" fill="url(#core)"/><g stroke="#f9f5ed" stroke-opacity=".65" stroke-width="3" fill="#23343e"><path d="M790 300 610 180M790 300 965 170M790 300 1010 360M790 300 650 445M790 300 830 490"/><circle cx="790" cy="300" r="74" stroke="#f0523a" stroke-width="7"/><circle cx="610" cy="180" r="25"/><circle cx="965" cy="170" r="25"/><circle cx="1010" cy="360" r="25"/><circle cx="650" cy="445" r="25"/><circle cx="830" cy="490" r="25"/></g><g fill="#f0523a"><circle cx="790" cy="300" r="24"/><circle cx="610" cy="180" r="8"/><circle cx="965" cy="170" r="8"/><circle cx="1010" cy="360" r="8"/><circle cx="650" cy="445" r="8"/><circle cx="830" cy="490" r="8"/></g>
 </svg>

@@ -272,7 +272,6 @@ export function WorkDetailContent({ project, relatedProjects }: WorkDetailConten
                 <StaggerItem key={relatedProject.slug}>
                   <Link href={`/work/${relatedProject.slug}`} className="block">
                     <motion.div
-                      initial={{ opacity: 0, y: 20 }}
                       whileHover={{ y: -4 }}
                       transition={{ duration: 0.3 }}
                       className="group"
