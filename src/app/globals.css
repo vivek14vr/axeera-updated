@@ -626,6 +626,18 @@
   }
 }
 
+@media (max-width: 767px) {
+  [class~="min-h-[min(880px,100svh)]"] {
+    min-height: 720px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  [class~="min-h-[min(880px,100svh)]"] {
+    min-height: min(820px, 100svh);
+  }
+}
+
 @media (min-width: 640px) and (max-width: 767px) {
   [class~="left-[72%]"][class~="top-[16%]"] {
     left: 67%;
