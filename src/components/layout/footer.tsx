@@ -2,9 +2,10 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { footerNavigation, navigation } from "@/data/navigation";
-import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import { Mail, MessageCircle, MapPin, ArrowRight } from "lucide-react";
 import { TwitterIcon, LinkedinIcon, GithubIcon } from "@/components/shared/social-icons";
 import { AxeeraLogo } from "@/components/shared/axeera-logo";
+import { siteConfig } from "@/lib/seo";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -134,14 +135,19 @@ export function Footer() {
                 </a>
               </div>
               <div className="flex items-start gap-3">
-                <Phone className="h-4 w-4 shrink-0 mt-0.5" aria-hidden="true" />
-                <a href="tel:+15550000000" className="hover:text-primary transition-colors">
-                  +1 (555) 000-0000
+                <MessageCircle className="h-4 w-4 shrink-0 mt-0.5" aria-hidden="true" />
+                <a
+                  href={siteConfig.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                >
+                  WhatsApp: {siteConfig.phone}
                 </a>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="h-4 w-4 shrink-0 mt-0.5" aria-hidden="true" />
-                <span>San Francisco, CA</span>
+                <span>{siteConfig.address}</span>
               </div>
             </address>
             <Link

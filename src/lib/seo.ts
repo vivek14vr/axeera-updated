@@ -10,8 +10,9 @@ export const siteConfig = {
   linkedin: "https://linkedin.com/company/axeera",
   github: "https://github.com/axeera",
   email: "info@axeera.com",
-  phone: "+1 (555) 000-0000",
-  address: "San Francisco, CA",
+  phone: "+91 88265 26768",
+  whatsapp: "https://wa.me/918826526768",
+  address: "2709 N Hayden Island Dr, STE 113775, Portland, Oregon, 97217, USA",
 };
 
 export const defaultMetadata: Metadata = {
@@ -182,8 +183,10 @@ export const organizationSchema = {
   },
   address: {
     "@type": "PostalAddress",
-    addressLocality: "San Francisco",
-    addressRegion: "CA",
+    streetAddress: "2709 N Hayden Island Dr, STE 113775",
+    addressLocality: "Portland",
+    addressRegion: "Oregon",
+    postalCode: "97217",
     addressCountry: "US",
   },
 };

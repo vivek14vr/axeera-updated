@@ -22,21 +22,21 @@ interface ServiceDetailContentProps {
 const pricingTiers = [
   {
     name: "Foundation",
-    price: "From $3,500",
+    price: "From $300",
     timeline: "2–4 weeks",
     description: "A focused launch for a clear, well-defined need.",
     features: ["Focused scope and roadmap", "Responsive implementation", "Launch QA and handover"],
   },
   {
     name: "Growth",
-    price: "From $8,500",
+    price: "From $5,000",
     timeline: "6–10 weeks",
     description: "A complete engagement for a product or business initiative.",
     features: ["Discovery and technical planning", "Design, build, and integrations", "Performance and accessibility review"],
   },
   {
     name: "Scale",
-    price: "Custom scope",
+    price: "Up to $10,000",
     timeline: "Flexible delivery",
     description: "A dedicated team for complex platforms and ongoing delivery.",
     features: ["Architecture and migration planning", "Advanced integrations and workflows", "Ongoing support and iteration"],

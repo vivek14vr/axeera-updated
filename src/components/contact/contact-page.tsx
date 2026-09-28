@@ -12,10 +12,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Label } from "@/components/ui/label";
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/animations/fade-up";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
-import { Mail, Phone, MapPin, MessageSquare, Calendar, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { Mail, MessageCircle, MapPin, MessageSquare, Calendar, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { siteConfig } from "@/lib/seo";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -45,11 +46,11 @@ const services = [
 ];
 
 const budgets = [
-  { value: "under-50k", label: "Under $50K" },
-  { value: "50k-100k", label: "$50K - $100K" },
-  { value: "100k-250k", label: "$100K - $250K" },
-  { value: "250k-500k", label: "$250K - $500K" },
-  { value: "500k-plus", label: "$500K+" },
+  { value: "300-1k", label: "$300 - $1,000" },
+  { value: "1k-3k", label: "$1,000 - $3,000" },
+  { value: "3k-5k", label: "$3,000 - $5,000" },
+  { value: "5k-10k", label: "$5,000 - $10,000" },
+  { value: "10k-plus", label: "$10,000+" },
   { value: "not-sure", label: "Not Sure" },
 ];
 
@@ -180,12 +181,19 @@ export function ContactPageContent() {
                 
                 <div className="flex items-start gap-4 p-4 bg-surface border border-border rounded-xl">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Phone className="h-5 w-5 text-primary" />
+                    <MessageCircle className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold">Call Us</h3>
-                    <a href="tel:+15550000000" className="text-primary hover:underline mt-1 block">+1 (555) 000-0000</a>
-                    <p className="text-sm text-muted-foreground mt-1">Mon-Fri, 9am-6pm PST</p>
+                    <h3 className="font-semibold">WhatsApp Us</h3>
+                    <a
+                      href={siteConfig.whatsapp}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline mt-1 block"
+                    >
+                      {siteConfig.phone}
+                    </a>
+                    <p className="text-sm text-muted-foreground mt-1">Message us on WhatsApp</p>
                   </div>
                 </div>
                 
@@ -195,8 +203,8 @@ export function ContactPageContent() {
                   </div>
                   <div>
                     <h3 className="font-semibold">Visit Us</h3>
-                    <p className="text-primary mt-1">San Francisco, CA</p>
-                    <p className="text-sm text-muted-foreground mt-1">Remote-first team, global presence</p>
+                    <p className="text-primary mt-1">{siteConfig.address}</p>
+                    <p className="text-sm text-muted-foreground mt-1">United States office</p>
                   </div>
                 </div>
               </div>
@@ -499,7 +507,7 @@ export function ContactPageContent() {
                     </svg>
                   </summary>
                   <div className="px-6 pb-6 text-muted-foreground animate-in slide-down fade-in duration-300">
-                    Yes, we offer retainer-based maintenance including security updates, performance monitoring, feature development, and 24/7 incident response. Our maintenance programs start at $3K/month.
+                    Yes, we offer retainer-based maintenance including security updates, performance monitoring, feature development, and 24/7 incident response. Our maintenance programs start at $300/month.
                   </div>
                 </details>
               </StaggerItem>
