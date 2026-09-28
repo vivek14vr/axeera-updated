@@ -9,7 +9,7 @@ export const siteConfig = {
   twitterHandle: "@axeera",
   linkedin: "https://linkedin.com/company/axeera",
   github: "https://github.com/axeera",
-  email: "hello@axeera.com",
+  email: "info@axeera.com",
   phone: "+1 (555) 000-0000",
   address: "San Francisco, CA",
 };

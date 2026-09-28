@@ -129,8 +129,8 @@ export function Footer() {
             <address className="not-italic space-y-4 text-sm text-muted-foreground">
               <div className="flex items-start gap-3">
                 <Mail className="h-4 w-4 shrink-0 mt-0.5" aria-hidden="true" />
-                <a href="mailto:hello@axeera.com" className="hover:text-primary transition-colors">
-                  hello@axeera.com
+                <a href="mailto:info@axeera.com" className="hover:text-primary transition-colors">
+                  info@axeera.com
                 </a>
               </div>
               <div className="flex items-start gap-3">

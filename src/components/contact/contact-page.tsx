@@ -95,7 +95,20 @@ export function ContactPageContent() {
       
       // In a real app, this would be an API call
       // For now, we'll open the default mail client with the form data
-      const mailtoLink = `mailto:hello@axeera.com?subject=New Project Inquiry: ${data.service}&body=Name: ${data.name}%0D%0AEmail: ${data.email}%0D%0ACompany: ${data.company}%0D%0APhone: ${data.phone || "Not provided"}%0D%0AService: ${data.service}%0D%0ABudget: ${data.budget}%0D%0ATimeline: ${data.timeline}%0D%0A%0D%0AMessage:%0D%0A${data.message}`;
+      const subject = `New Project Inquiry: ${data.service}`;
+      const body = [
+        `Name: ${data.name}`,
+        `Email: ${data.email}`,
+        `Company: ${data.company}`,
+        `Phone: ${data.phone || "Not provided"}`,
+        `Service: ${data.service}`,
+        `Budget: ${data.budget}`,
+        `Timeline: ${data.timeline}`,
+        "",
+        "Message:",
+        data.message,
+      ].join("\n");
+      const mailtoLink = `mailto:info@axeera.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       
       window.location.href = mailtoLink;
       
@@ -104,7 +117,7 @@ export function ContactPageContent() {
       reset();
     } catch {
       setSubmitStatus("error");
-      setSubmitMessage("Something went wrong. Please try again or email us directly at hello@axeera.com");
+      setSubmitMessage("Something went wrong. Please try again or email us directly at info@axeera.com");
     }
   };
 
@@ -149,7 +162,7 @@ export function ContactPageContent() {
                   </div>
                   <div>
                     <h3 className="font-semibold">Email Us</h3>
-                    <a href="mailto:hello@axeera.com" className="text-primary hover:underline mt-1 block">hello@axeera.com</a>
+                    <a href="mailto:info@axeera.com" className="text-primary hover:underline mt-1 block">info@axeera.com</a>
                     <p className="text-sm text-muted-foreground mt-1">Response within 24 hours</p>
                   </div>
                 </div>
