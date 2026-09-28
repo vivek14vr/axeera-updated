@@ -97,7 +97,7 @@ export function NavBar() {
     >
       <nav className="mx-auto w-full max-w-[90rem] px-6 lg:px-10" aria-label="Main navigation">
         <div className="flex h-16 items-center justify-between md:h-20">
-          <AxeeraLogo className="h-20 w-28" />
+          <AxeeraLogo className="h-14 w-20 md:h-16 md:w-24 lg:h-20 lg:w-28" />
 
           <div className="hidden lg:flex lg:items-center lg:gap-6">
             {navigation.main.map((item) => (

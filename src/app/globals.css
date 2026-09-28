@@ -608,6 +608,12 @@
     overflow: hidden;
   }
 
+  [class~="sm:flex-row"][class~="sm:items-end"][class~="sm:justify-between"] {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
   [class~="z-20"][class~="lg:hidden"] {
     z-index: 0;
     opacity: 0.42;
