@@ -330,7 +330,7 @@ export function WorkDetailContent({ project, relatedProjects }: WorkDetailConten
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                 "disabled:opacity-50 disabled:pointer-events-none",
                 "active:scale-[0.98]",
-                "bg-white text-primary hover:bg-primary/90 hover:shadow-lg hover:-translate-y-0.5 px-10 py-5 text-lg"
+                "bg-white text-primary hover:bg-white/90 hover:shadow-lg hover:-translate-y-0.5 px-10 py-5 text-lg"
               )}
             >
               Start a Conversation

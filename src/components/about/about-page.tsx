@@ -217,7 +217,16 @@ export function AboutPageContent() {
                   <ScrollReveal direction="up" distance={30} threshold={0.1}>
                     <div className="bg-surface border border-border rounded-2xl overflow-hidden hover:border-primary/50 transition-colors duration-300">
                       <div className="aspect-square relative overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#17232b] via-[#29404b] to-primary/80" />
+                        <div className="absolute right-6 top-6 h-40 w-40 overflow-hidden rounded-full border border-white/20 bg-white/10 shadow-xl">
+                          <Image
+                            src={member.avatar}
+                            alt={`${member.name} portrait`}
+                            fill
+                            sizes="160px"
+                            className="object-cover"
+                          />
+                        </div>
                         <div className="relative h-full flex items-end p-6">
                           <div>
                             <h3 className="font-semibold text-lg text-white">{member.name}</h3>
@@ -263,7 +272,7 @@ export function AboutPageContent() {
                   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                   "disabled:opacity-50 disabled:pointer-events-none",
                   "active:scale-[0.98]",
-                  "bg-white text-primary hover:bg-primary/90 hover:shadow-lg hover:-translate-y-0.5 px-10 py-5 text-lg"
+                  "bg-white text-primary hover:bg-white/90 hover:shadow-lg hover:-translate-y-0.5 px-10 py-5 text-lg"
                 )}
               >
                 Join Our Team
