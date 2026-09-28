@@ -7,7 +7,7 @@ import { ScrollReveal } from "@/components/animations/scroll-reveal";
 import { TextReveal } from "@/components/animations/text-reveal";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Target, Users, Lightbulb, Globe, CheckCircle, Award, TrendingUp, Heart, Code, Zap, Shield, BookOpen } from "lucide-react";
+import { Target, Users, Lightbulb, Globe, CheckCircle, Heart, Code, Zap, Shield, BookOpen } from "lucide-react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -27,21 +27,21 @@ const principles = [
 ];
 
 const teamMembers = [
-  { name: "Sarah Chen", role: "Principal Engineer", bio: "Former Staff Engineer at Stripe. Leads platform engineering practice.", avatar: "/images/authors/sarah-chen.svg" },
-  { name: "Marcus Rodriguez", role: "VP Engineering", bio: "15+ years at Google, Airbnb, and high-growth startups. Oversees engineering delivery.", avatar: "/images/authors/marcus-rodriguez.svg" },
-  { name: "Priya Sharma", role: "Design Director", bio: "Created design systems for Fortune 500 and unicorns. Accessibility advocate.", avatar: "/images/authors/priya-sharma.svg" },
-  { name: "James Patterson", role: "Cloud Architect", bio: "AWS Hero, CNCF Ambassador. Author of 'Cloud Native Patterns'.", avatar: "/images/authors/james-patterson.svg" },
-  { name: "Dr. Elena Volkov", role: "AI Research Lead", bio: "PhD ML from MIT. Former OpenAI, DeepMind. Focuses on production ML systems.", avatar: "/images/authors/elena-volkov.svg" },
-  { name: "David Park", role: "Principal Designer", bio: "Led design at Figma and Notion. Expert in design systems and developer experience.", avatar: "/images/team/david-park.jpg" },
+  { name: "Arjun Mehta", role: "Principal Engineer", bio: "Leads our platform engineering practice with a focus on reliable systems and clear delivery.", avatar: "/images/authors/arjun-mehta.svg" },
+  { name: "Neha Kapoor", role: "VP Engineering", bio: "Guides engineering delivery, team growth, and product execution across complex initiatives.", avatar: "/images/authors/neha-kapoor.svg" },
+  { name: "Priya Sharma", role: "Design Director", bio: "Shapes accessible interfaces and design systems that make digital products easier to use.", avatar: "/images/authors/priya-sharma.svg" },
+  { name: "James Patterson", role: "Cloud Architect", bio: "Designs secure, resilient cloud foundations for products at every stage.", avatar: "/images/authors/james-patterson.svg" },
+  { name: "Emily Carter", role: "AI Research Lead", bio: "Builds practical AI systems with a focus on quality, safety, and measurable outcomes.", avatar: "/images/authors/emily-carter.svg" },
+  { name: "David Park", role: "Principal Designer", bio: "Creates clear design systems and product experiences for modern teams.", avatar: "/images/authors/david-park.svg" },
 ];
 
 const stats = [
-  { icon: TrendingUp, value: "50+", label: "Projects Delivered" },
   { icon: Users, value: "45+", label: "Team Members" },
   { icon: Globe, value: "8", label: "Countries" },
-  { icon: Award, value: "98%", label: "Client Satisfaction" },
   { icon: Heart, value: "100%", label: "Remote-First" },
-  { icon: Code, value: "12+", label: "Avg. Years Exp." },
+  { icon: Target, value: "4", label: "Core Values" },
+  { icon: Code, value: "4", label: "Delivery Principles" },
+  { icon: Zap, value: "2018", label: "Founded" },
 ];
 
 export function AboutPageContent() {
@@ -89,7 +89,7 @@ export function AboutPageContent() {
                     We started Axeera in 2018 with a laptop, a whiteboard, and a commitment to do things differently. No sales team. No middle management. Just senior practitioners who own outcomes end-to-end.
                   </p>
                   <p className="body-lg">
-                    Today, we&apos;re 45+ people across 8 countries. We&apos;ve delivered 50+ projects for clients ranging from funded startups to Fortune 500 enterprises. But our operating principle hasn&apos;t changed: senior talent, direct communication, measurable results.
+                    Today, we&apos;re a distributed team across 8 countries. Our operating principle is simple: senior talent, direct communication, and measurable results.
                   </p>
                 </div>
               </FadeUp>
@@ -237,7 +237,7 @@ export function AboutPageContent() {
                       <div className="p-6">
                         <p className="text-muted-foreground text-sm mb-4">{member.bio}</p>
                         <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <span>12+ years exp.</span>
+                          <span>Core team</span>
                           <span>•</span>
                           <span>Remote-first</span>
                         </div>
