@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { footerNavigation, navigation } from "@/data/navigation";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { TwitterIcon, LinkedinIcon, GithubIcon } from "@/components/shared/social-icons";
+import { AxeeraLogo } from "@/components/shared/axeera-logo";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -13,9 +14,7 @@ export function Footer() {
       <div className="container mx-auto px-6 py-16 md:py-24 lg:py-32">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 lg:gap-14">
           <div className="lg:col-span-2 space-y-6">
-            <Link href="/" className="inline-flex items-center gap-2" aria-label="Axeera Home">
-              <span className="text-2xl font-display font-bold tracking-tight">Axeera</span>
-            </Link>
+            <AxeeraLogo className="h-16 w-24" />
             <p className="text-muted-foreground text-base leading-relaxed max-w-xs">
               We design and engineer digital products, platforms, and cloud systems that help businesses launch faster, automate operations, and scale reliably.
             </p>

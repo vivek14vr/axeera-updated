@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f4efe9"/>
+  <rect x="52" y="48" width="1096" height="534" fill="#111111"/>
+  <text x="90" y="112" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="700" letter-spacing="4">LA FASHION</text>
+  <text x="90" y="188" fill="#ffffff" font-family="Georgia, serif" font-size="54">Made to be noticed.</text>
+  <text x="90" y="230" fill="#b1b1b1" font-family="system-ui, sans-serif" font-size="15">NEW SEASON / COLLECTION 01</text>
+  <rect x="90" y="290" width="220" height="210" fill="#c58c7d"/>
+  <path d="M145 454c15-78 91-84 113 0" fill="none" stroke="#f8e9df" stroke-width="18"/>
+  <circle cx="200" cy="346" r="34" fill="#e7c0ae"/>
+  <rect x="350" y="290" width="220" height="210" fill="#d7c9b7"/>
+  <path d="M415 434h94v52h-94zM432 432v-56h60v56" fill="none" stroke="#2f2f2f" stroke-width="13"/>
+  <rect x="610" y="290" width="220" height="210" fill="#e7b1a7"/>
+  <path d="M668 472c6-68 96-68 104 0M720 354a31 31 0 1 0 0 1" fill="none" stroke="#fff0eb" stroke-width="15"/>
+  <rect x="870" y="290" width="240" height="210" fill="#f3e7dc"/>
+  <text x="906" y="372" fill="#111111" font-family="Georgia, serif" font-size="30">Shop</text>
+  <text x="906" y="414" fill="#111111" font-family="Georgia, serif" font-size="30">the edit.</text>
+  <path d="M906 452h100" stroke="#c25e4e" stroke-width="3"/>
+</svg>

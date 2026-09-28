@@ -19,10 +19,34 @@ interface ServiceDetailContentProps {
   relatedServices: Service[];
 }
 
+const pricingTiers = [
+  {
+    name: "Foundation",
+    price: "From $3,500",
+    timeline: "2–4 weeks",
+    description: "A focused launch for a clear, well-defined need.",
+    features: ["Focused scope and roadmap", "Responsive implementation", "Launch QA and handover"],
+  },
+  {
+    name: "Growth",
+    price: "From $8,500",
+    timeline: "6–10 weeks",
+    description: "A complete engagement for a product or business initiative.",
+    features: ["Discovery and technical planning", "Design, build, and integrations", "Performance and accessibility review"],
+  },
+  {
+    name: "Scale",
+    price: "Custom scope",
+    timeline: "Flexible delivery",
+    description: "A dedicated team for complex platforms and ongoing delivery.",
+    features: ["Architecture and migration planning", "Advanced integrations and workflows", "Ongoing support and iteration"],
+  },
+];
+
 export function ServiceDetailContent({ service, relatedServices }: ServiceDetailContentProps) {
   return (
     <>
-      <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-center overflow-hidden" aria-labelledby="service-title">
+      <section className="page-hero relative min-h-[60vh] md:min-h-[70vh] flex items-center" aria-labelledby="service-title">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" aria-hidden="true" />
         <div className="container mx-auto px-6 relative z-10 py-20">
           <div className="max-w-3xl">
@@ -164,6 +188,64 @@ export function ServiceDetailContent({ service, relatedServices }: ServiceDetail
                 </Link>
               </FadeUp>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section bg-muted/30 border-y border-border" aria-labelledby="pricing-heading">
+        <div className="container mx-auto px-6">
+          <div className="mx-auto max-w-3xl text-center">
+            <FadeUp delay={0.1}>
+              <span className="caption text-primary">Pricing</span>
+            </FadeUp>
+            <FadeUp delay={0.2}>
+              <h2 id="pricing-heading" className="heading-1 mt-3 text-4xl tracking-tight md:text-5xl">
+                A clear place to start.
+              </h2>
+            </FadeUp>
+            <FadeUp delay={0.3}>
+              <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
+                These are indicative starting points for {service.title.toLowerCase()} engagements. Every proposal is shaped around your goals, scope, and delivery timeline.
+              </p>
+            </FadeUp>
+          </div>
+
+          <StaggerContainer staggerDelay={0.08} className="mt-12 grid gap-6 lg:grid-cols-3">
+            {pricingTiers.map((tier, index) => (
+              <StaggerItem key={tier.name}>
+                <Card className={cn("flex h-full flex-col rounded-2xl", index === 1 && "border-primary shadow-lg shadow-primary/10")}>
+                  <CardHeader>
+                    {index === 1 && <span className="mb-3 w-fit rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">Most popular</span>}
+                    <CardTitle className="text-2xl">{tier.name}</CardTitle>
+                    <p className="pt-2 text-sm text-muted-foreground">{tier.description}</p>
+                  </CardHeader>
+                  <CardContent className="flex flex-1 flex-col">
+                    <div>
+                      <p className="font-display text-3xl font-semibold tracking-tight">{tier.price}</p>
+                      <p className="mt-1 flex items-center gap-2 text-sm text-muted-foreground"><Clock className="h-4 w-4 text-primary" aria-hidden="true" />{tier.timeline}</p>
+                    </div>
+                    <ul className="mt-7 grid gap-3 border-t border-border pt-6" role="list">
+                      {tier.features.map((feature) => (
+                        <li key={feature} className="flex items-start gap-2 text-sm text-muted-foreground">
+                          <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Link href={`/contact?service=${service.slug}`} className={cn("mt-auto inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-medium transition-all hover:-translate-y-0.5", index === 1 ? "bg-primary text-primary-foreground hover:shadow-lg" : "border border-border bg-surface hover:border-primary hover:text-primary")}>
+                      Discuss this option
+                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </Link>
+                  </CardContent>
+                </Card>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+          <div className="mt-8 text-center">
+            <Link href="/pricing#service-pricing" className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3">
+              Compare all service pricing
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
           </div>
         </div>
       </section>

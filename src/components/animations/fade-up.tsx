@@ -14,18 +14,19 @@ export interface FadeUpProps extends HTMLMotionProps<"div"> {
   children: React.ReactNode;
 }
 
-export function FadeUp({ delay = 0, duration = 0.6, distance = 30, className, children, ...props }: FadeUpProps) {
+export function FadeUp({ delay = 0, duration = 0.4, distance = 20, className, children, ...props }: FadeUpProps) {
   const prefersReducedMotion = useReducedMotion();
+  const revealDelay = Math.min(delay, 0.28);
   const variants = prefersReducedMotion ? reducedMotionVariants : {
     hidden: { opacity: 0, y: distance },
-    visible: { opacity: 1, y: 0, transition: { duration, delay, ease: defaultEase } },
+    visible: { opacity: 1, y: 0, transition: { duration, delay: revealDelay, ease: defaultEase } },
   };
 
   return (
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.18, margin: "0px 0px -64px" }}
+      viewport={{ once: true, amount: 0.08, margin: "0px 0px 80px" }}
       variants={variants}
       className={className}
       {...props}
@@ -53,7 +54,7 @@ export function FadeIn({ delay = 0, duration = 0.4, className, children, ...prop
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.18, margin: "0px 0px -64px" }}
+      viewport={{ once: true, amount: 0.08, margin: "0px 0px 80px" }}
       variants={variants}
       className={className}
       {...props}
@@ -100,18 +101,20 @@ export interface StaggerContainerProps extends HTMLMotionProps<"div"> {
 }
 
 export function StaggerContainer({ 
-  staggerDelay = 0.1, 
-  delayChildren = 0.1, 
+  staggerDelay = 0.05,
+  delayChildren = 0.02,
   className, 
   children, 
   ...props 
 }: StaggerContainerProps) {
   const prefersReducedMotion = useReducedMotion();
+  const safeStaggerDelay = Math.min(staggerDelay, 0.06);
+  const safeDelayChildren = Math.min(delayChildren, 0.03);
   const variants = prefersReducedMotion ? reducedMotionVariants : {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: staggerDelay, delayChildren },
+      transition: { staggerChildren: safeStaggerDelay, delayChildren: safeDelayChildren },
     },
   };
 
@@ -119,7 +122,7 @@ export function StaggerContainer({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.12, margin: "0px 0px -48px" }}
+      viewport={{ once: true, amount: 0.05, margin: "0px 0px 96px" }}
       variants={variants}
       className={className}
       {...props}
@@ -137,15 +140,15 @@ export interface StaggerItemProps extends HTMLMotionProps<"div"> {
 export function StaggerItem({ className, children, ...props }: StaggerItemProps) {
   const prefersReducedMotion = useReducedMotion();
   const variants = prefersReducedMotion ? reducedMotionVariants : {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: defaultEase } },
+    hidden: { opacity: 0, y: 14 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: defaultEase } },
   };
 
   return (
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.12, margin: "0px 0px -48px" }}
+      viewport={{ once: true, amount: 0.05, margin: "0px 0px 96px" }}
       variants={variants}
       className={className}
       {...props}

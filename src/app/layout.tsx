@@ -25,6 +25,11 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL("https://axeera.com"),
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",

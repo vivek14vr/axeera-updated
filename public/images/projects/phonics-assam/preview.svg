@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#d7eff0"/><stop offset="1" stop-color="#f6d9bd"/></linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#sky)"/>
+  <circle cx="1050" cy="112" r="170" fill="#f0aa73" opacity=".42"/>
+  <path d="M0 478c150-70 240-16 367-77 126-61 230-16 341-70 124-60 265-40 492-118v417H0Z" fill="#5b8d80" opacity=".22"/>
+  <rect x="74" y="74" width="470" height="482" rx="26" fill="#fffaf1" opacity=".9"/>
+  <text x="116" y="142" fill="#e2744e" font-family="system-ui, sans-serif" font-size="15" font-weight="700" letter-spacing="4">PHONICS ASSAM</text>
+  <text x="116" y="240" fill="#1f4d59" font-family="Georgia, serif" font-size="52">Every child</text>
+  <text x="116" y="300" fill="#1f4d59" font-family="Georgia, serif" font-size="52">can read</text>
+  <text x="116" y="360" fill="#e2744e" font-family="Georgia, serif" font-size="52">with confidence.</text>
+  <text x="116" y="430" fill="#527078" font-family="system-ui, sans-serif" font-size="16">CLASSROOMS · STORIES · READING SUCCESS</text>
+  <g transform="translate(670 122)">
+    <rect width="392" height="310" rx="20" fill="#fffaf1" opacity=".86"/>
+    <rect x="26" y="26" width="340" height="190" rx="14" fill="#b9dfdb"/>
+    <circle cx="100" cy="116" r="38" fill="#f4b083"/>
+    <circle cx="248" cy="112" r="36" fill="#e68d6b"/>
+    <path d="M54 204c32-46 63-47 96 0M202 202c30-42 62-42 100 0" fill="none" stroke="#36706b" stroke-width="10" stroke-linecap="round"/>
+    <rect x="26" y="244" width="144" height="12" rx="6" fill="#e2744e"/>
+    <rect x="186" y="244" width="122" height="12" rx="6" fill="#6b9e95"/>
+  </g>
+  <text x="700" y="510" fill="#1f4d59" font-family="system-ui, sans-serif" font-size="18" font-weight="700">PAST EVENT GALLERIES</text>
+</svg>

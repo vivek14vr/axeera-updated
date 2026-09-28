@@ -6,8 +6,8 @@ const textEase: Easing = [0.16, 1, 0.3, 1];
 export const transitions = {
   fast: { duration: 0.15, ease: defaultEase },
   normal: { duration: 0.3, ease: defaultEase },
-  slow: { duration: 0.5, ease: defaultEase },
-  slower: { duration: 0.7, ease: defaultEase },
+  slow: { duration: 0.35, ease: defaultEase },
+  slower: { duration: 0.45, ease: defaultEase },
   spring: { type: "spring", stiffness: 100, damping: 15 },
   springGentle: { type: "spring", stiffness: 60, damping: 12 },
   springBounce: { type: "spring", stiffness: 200, damping: 12 },
@@ -68,7 +68,7 @@ export const textReveal: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: textEase },
+    transition: { duration: 0.5, ease: textEase },
   },
 };
 
@@ -76,20 +76,20 @@ export const textRevealLines: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.1 },
+    transition: { staggerChildren: 0.06, delayChildren: 0.04 },
   },
 };
 
 export const textLine: Variants = {
   hidden: { opacity: 0, y: "100%" },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: textEase } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: textEase } },
 };
 
 export const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.08, delayChildren: 0.1 },
+    transition: { staggerChildren: 0.05, delayChildren: 0.03 },
   },
 };
 
@@ -97,7 +97,7 @@ export const staggerFast: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.05, delayChildren: 0.05 },
+    transition: { staggerChildren: 0.035, delayChildren: 0.02 },
   },
 };
 
@@ -105,7 +105,7 @@ export const staggerSlow: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.12, delayChildren: 0.15 },
+    transition: { staggerChildren: 0.06, delayChildren: 0.03 },
   },
 };
 
@@ -116,17 +116,17 @@ export const staggerItem: Variants = {
 
 export const imageReveal: Variants = {
   hidden: { opacity: 0, scale: 1.1 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 1.2, ease: textEase } },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.65, ease: textEase } },
 };
 
 export const clipReveal: Variants = {
   hidden: { opacity: 0, clipPath: "inset(100% 0 0 0)" },
-  visible: { opacity: 1, clipPath: "inset(0 0 0 0)", transition: { duration: 1, ease: textEase } },
+  visible: { opacity: 1, clipPath: "inset(0 0 0 0)", transition: { duration: 0.65, ease: textEase } },
 };
 
 export const sectionReveal: Variants = {
   hidden: { opacity: 0, y: 60 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: textEase } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: textEase } },
 };
 
 export const hoverLift = {

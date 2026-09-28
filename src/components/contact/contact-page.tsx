@@ -110,10 +110,10 @@ export function ContactPageContent() {
 
   return (
     <>
-      <section className="relative min-h-[50vh] md:min-h-[60vh] flex items-center overflow-hidden" aria-labelledby="contact-title">
+      <section className="page-hero relative flex min-h-[50vh] items-center border-b border-white/10 md:min-h-[60vh]" aria-labelledby="contact-title">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" aria-hidden="true" />
-        <div className="container mx-auto px-6 relative z-10 py-20">
-          <div className="max-w-3xl">
+        <div className="relative z-10 mx-auto w-full max-w-[90rem] px-6 py-20 lg:px-10">
+          <div className="max-w-4xl">
             <FadeUp delay={0.1}>
               <span className="caption text-primary">Get in Touch</span>
             </FadeUp>

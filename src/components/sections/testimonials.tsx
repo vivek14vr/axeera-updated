@@ -21,6 +21,8 @@ export function Testimonials() {
     setCurrentIndex((prev) => (prev - 1 + featuredTestimonials.length) % featuredTestimonials.length);
   }, []);
 
+  if (featuredTestimonials.length === 0) return null;
+
   const testimonial = featuredTestimonials[currentIndex];
 
   return (

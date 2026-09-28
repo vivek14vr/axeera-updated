@@ -27,7 +27,7 @@ export interface TextRevealProps extends HTMLMotionProps<"p"> {
 
 export function TextReveal({ 
   delay = 0, 
-  duration = 0.8, 
+  duration = 0.5,
   className, 
   children, 
   as: Component = "p",
@@ -70,8 +70,8 @@ export interface TextRevealLinesProps extends HTMLMotionProps<"div"> {
 
 export function TextRevealLines({ 
   delay = 0, 
-  staggerDelay = 0.1, 
-  duration = 0.7, 
+  staggerDelay = 0.06,
+  duration = 0.45,
   className, 
   children, 
   as: Component = "div",

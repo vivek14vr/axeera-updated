@@ -22,11 +22,11 @@ export interface ScrollRevealProps extends HTMLMotionProps<"div"> {
 
 export function ScrollReveal({
   direction = "up",
-  distance = 60,
+  distance = 32,
   delay = 0,
-  duration = 0.8,
-  threshold = 0.1,
-  rootMargin = "0px",
+  duration = 0.45,
+  threshold = 0.05,
+  rootMargin = "0px 0px 96px 0px",
   triggerOnce = true,
   className,
   children,
@@ -35,6 +35,7 @@ export function ScrollReveal({
   const prefersReducedMotion = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const revealDelay = Math.min(delay, 0.28);
 
   useEffect(() => {
     if (prefersReducedMotion) {
@@ -66,7 +67,7 @@ export function ScrollReveal({
   
   const variants = prefersReducedMotion ? reducedMotionVariants : {
     hidden: { opacity: 0, ...slideVariants.hidden },
-    visible: { opacity: 1, ...slideVariants.visible, transition: { duration, ease: defaultEase } },
+    visible: { opacity: 1, ...slideVariants.visible, transition: { duration, delay: revealDelay, ease: defaultEase } },
   };
 
   return (
@@ -75,7 +76,6 @@ export function ScrollReveal({
       initial="hidden"
       animate={prefersReducedMotion || isVisible ? "visible" : "hidden"}
       variants={variants}
-      style={{ transitionDelay: `${delay}s` }}
       className={className}
       {...props}
     >

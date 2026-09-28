@@ -3,16 +3,10 @@
 import { motion } from "motion/react";
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
-import { Card, CardContent } from "@/components/ui/card";
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/animations/fade-up";
-import { ScrollReveal } from "@/components/animations/scroll-reveal";
-import { TextReveal } from "@/components/animations/text-reveal";
 import { Project } from "@/data/projects";
-import { ArrowRight, ExternalLink, CheckCircle, Calendar, Users, Clock, Code, Layers, Target, Zap, Shield } from "lucide-react";
-import { GithubIcon } from "@/components/shared/social-icons";
+import { ArrowRight, ExternalLink, Calendar, Users, Clock } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface WorkDetailContentProps {
@@ -23,7 +17,7 @@ interface WorkDetailContentProps {
 export function WorkDetailContent({ project, relatedProjects }: WorkDetailContentProps) {
   return (
     <>
-      <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-center overflow-hidden" aria-labelledby="project-title">
+      <section className="page-hero relative min-h-[60vh] md:min-h-[70vh] flex items-center" aria-labelledby="project-title">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" aria-hidden="true" />
         <div className="container mx-auto px-6 relative z-10 py-20">
           <div className="max-w-3xl">
@@ -76,15 +70,15 @@ export function WorkDetailContent({ project, relatedProjects }: WorkDetailConten
                   Start a Similar Project
                   <ArrowRight className="h-5 w-5" aria-hidden="true" />
                 </Link>
-                {project.clientLogo && (
-                  <Link
-                    href={`/work/${project.slug}`}
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface border border-border hover:border-primary/50 transition-colors"
-                  >
-                    <span className="text-sm font-medium">View Details</span>
-                    <ExternalLink className="h-4 w-4" />
-                  </Link>
-                )}
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex min-h-11 items-center gap-2 rounded-lg border border-border bg-surface px-4 py-2 transition-colors hover:border-primary/50"
+                >
+                  <span className="text-sm font-medium">Visit live project</span>
+                  <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                </a>
               </div>
             </FadeUp>
           </div>
@@ -96,12 +90,15 @@ export function WorkDetailContent({ project, relatedProjects }: WorkDetailConten
       <section className="section bg-background" aria-labelledby="hero-image-heading">
         <div className="container mx-auto px-6">
           <FadeUp delay={0.1}>
-            <div className="relative aspect-[21/9] max-w-6xl mx-auto rounded-2xl overflow-hidden">
+            <div className="relative mx-auto max-w-6xl rounded-2xl bg-muted">
               <Image
                 src={project.heroImage}
-                alt=""
-                fill
-                className="object-cover"
+                alt={`${project.title} project preview`}
+                width={project.imageWidth}
+                height={project.imageHeight}
+                unoptimized
+                className="block h-auto w-full object-contain"
+                style={{ width: "100%", height: "auto", objectFit: "contain" }}
                 priority
                 sizes="100vw"
               />
@@ -109,6 +106,39 @@ export function WorkDetailContent({ project, relatedProjects }: WorkDetailConten
           </FadeUp>
         </div>
       </section>
+
+      {project.gallery.length > 0 && (
+        <section className="section bg-muted/30 border-y border-border" aria-labelledby="gallery-heading">
+          <div className="container mx-auto px-6">
+            <div className="mx-auto mb-12 max-w-3xl text-center">
+              <FadeUp delay={0.1}>
+                <span className="caption text-primary">Project gallery</span>
+              </FadeUp>
+              <FadeUp delay={0.2}>
+                <h2 id="gallery-heading" className="heading-1 mt-3 text-4xl tracking-tight md:text-5xl">
+                  A closer look at {project.title}
+                </h2>
+              </FadeUp>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2">
+              {project.gallery.map((image, index) => (
+                <FadeUp key={image} delay={index * 0.06}>
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-border bg-surface">
+                    <Image
+                      src={image}
+                      alt={`${project.title} screenshot ${index + 1}`}
+                      fill
+                      unoptimized
+                      className="object-contain"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                </FadeUp>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="section bg-muted/30 border-y border-border" aria-labelledby="challenge-heading">
         <div className="container mx-auto px-6">
@@ -171,18 +201,18 @@ export function WorkDetailContent({ project, relatedProjects }: WorkDetailConten
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <FadeUp delay={0.1}>
-              <span className="caption text-primary">Results</span>
+              <span className="caption text-primary">Build highlights</span>
             </FadeUp>
             <FadeUp delay={0.2}>
               <h2 id="results-heading" className="heading-1 text-4xl md:text-5xl mt-3 tracking-tight">
-                Measurable impact
+                What shipped
               </h2>
             </FadeUp>
           </div>
 
           <StaggerContainer staggerDelay={0.1}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {project.results.map((result, index) => (
+              {project.results.map((result) => (
                 <StaggerItem key={result.metric}>
                   <div className="bg-surface border border-border rounded-2xl p-6 text-center">
                     <div className="heading-display text-5xl md:text-6xl font-bold tracking-tighter mb-2">{result.value}</div>
@@ -238,7 +268,7 @@ export function WorkDetailContent({ project, relatedProjects }: WorkDetailConten
 
           <StaggerContainer staggerDelay={0.1}>
             <div className="grid md:grid-cols-3 gap-6">
-              {relatedProjects.map((relatedProject, index) => (
+              {relatedProjects.map((relatedProject) => (
                 <StaggerItem key={relatedProject.slug}>
                   <Link href={`/work/${relatedProject.slug}`} className="block">
                     <motion.div
@@ -247,12 +277,15 @@ export function WorkDetailContent({ project, relatedProjects }: WorkDetailConten
                       transition={{ duration: 0.3 }}
                       className="group"
                     >
-                      <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-muted mb-4">
+                      <div className="relative rounded-2xl bg-muted mb-4">
                         <Image
                           src={relatedProject.heroImage}
-                          alt=""
-                          fill
-                          className="object-cover transition-transform duration-700 group-hover:scale-105"
+                          alt={`${relatedProject.title} project preview`}
+                      width={relatedProject.imageWidth}
+                      height={relatedProject.imageHeight}
+                      unoptimized
+                      className="block h-auto w-full object-contain"
+                          style={{ width: "100%", height: "auto", objectFit: "contain" }}
                           sizes="(max-width: 768px) 100vw, 33vw"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

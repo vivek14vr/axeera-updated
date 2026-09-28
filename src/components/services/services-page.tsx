@@ -13,9 +13,9 @@ import { ServiceIcon } from "@/components/shared/icon";
 export function ServicesPageContent() {
   return (
     <>
-      <section className="section bg-muted/30 border-b border-border" aria-labelledby="services-hero-heading">
-        <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto text-center">
+      <section className="page-hero section border-b border-white/10" aria-labelledby="services-hero-heading">
+        <div className="mx-auto max-w-[90rem] px-6 lg:px-10">
+          <div className="max-w-4xl">
             <FadeUp delay={0.1}>
               <span className="caption text-primary">Our Services</span>
             </FadeUp>
@@ -25,7 +25,7 @@ export function ServicesPageContent() {
               </h1>
             </FadeUp>
             <FadeUp delay={0.3}>
-              <p className="body-lg text-muted-foreground mt-6 max-w-2xl mx-auto">
+              <p className="body-lg mt-6 max-w-2xl text-muted-foreground">
                 From strategy to launch and beyond, we provide end-to-end digital services that solve complex challenges and create measurable outcomes.
               </p>
             </FadeUp>

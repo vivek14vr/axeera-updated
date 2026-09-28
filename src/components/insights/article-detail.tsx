@@ -27,7 +27,7 @@ export function ArticleDetailContent({ article, relatedArticles }: ArticleDetail
 
   return (
     <>
-      <section className="section bg-background border-b border-border" aria-labelledby="article-title">
+      <section className="page-hero section border-b border-white/10" aria-labelledby="article-title">
         <div className="container mx-auto px-6">
           <FadeUp delay={0.1}>
             <Link href="/insights" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">

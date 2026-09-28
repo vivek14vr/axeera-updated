@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#eaf0f4"/>
+  <rect x="55" y="52" width="1090" height="526" rx="18" fill="#ffffff" stroke="#cbd8df"/>
+  <rect x="55" y="52" width="245" height="526" rx="18" fill="#172b38"/>
+  <text x="90" y="112" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="700" letter-spacing="3">SV ENTERPRISES</text>
+  <text x="90" y="156" fill="#8ca6b3" font-family="system-ui, sans-serif" font-size="14">INVENTORY / 2026</text>
+  <rect x="88" y="220" width="178" height="44" rx="10" fill="#234657"/>
+  <circle cx="112" cy="242" r="7" fill="#f18b56"/>
+  <text x="132" y="248" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14">Stock overview</text>
+  <text x="90" y="316" fill="#8ca6b3" font-family="system-ui, sans-serif" font-size="13">WAREHOUSES</text>
+  <text x="90" y="350" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16">Vasai</text>
+  <text x="90" y="382" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16">Goregaon</text>
+  <text x="90" y="414" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16">Admin</text>
+  <text x="354" y="118" fill="#172b38" font-family="system-ui, sans-serif" font-size="14" font-weight="700" letter-spacing="3">WAREHOUSE STOCK</text>
+  <text x="354" y="176" fill="#172b38" font-family="system-ui, sans-serif" font-size="42" font-weight="700">Make movement simple.</text>
+  <rect x="354" y="228" width="222" height="128" rx="14" fill="#f7f9fa" stroke="#d8e1e5"/>
+  <text x="380" y="266" fill="#76909d" font-family="system-ui, sans-serif" font-size="12" letter-spacing="2">AVAILABLE STOCK</text>
+  <text x="380" y="322" fill="#172b38" font-family="system-ui, sans-serif" font-size="40" font-weight="700">12,840</text>
+  <rect x="604" y="228" width="222" height="128" rx="14" fill="#fff4ec" stroke="#f2c9ae"/>
+  <text x="630" y="266" fill="#a66e50" font-family="system-ui, sans-serif" font-size="12" letter-spacing="2">MOVING TODAY</text>
+  <text x="630" y="322" fill="#172b38" font-family="system-ui" font-size="40" font-weight="700">438</text>
+  <rect x="854" y="228" width="234" height="128" rx="14" fill="#dfeee9"/>
+  <text x="880" y="266" fill="#47776c" font-family="system-ui, sans-serif" font-size="12" letter-spacing="2">REPORTS</text>
+  <text x="880" y="322" fill="#172b38" font-family="system-ui" font-size="32" font-weight="700">READY</text>
+  <path d="M356 450h700M356 484h520M356 518h620" stroke="#dce5e9" stroke-width="12" stroke-linecap="round"/>
+</svg>

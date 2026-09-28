@@ -136,12 +136,13 @@ export function generateProjectMetadata(project: {
   description: string;
   slug: string;
   image?: string;
+  heroImage?: string;
 }): Metadata {
   return generatePageMetadata(
     project.title,
     project.description,
     `/work/${project.slug}`,
-    project.image
+    project.image || project.heroImage
   );
 }
 
@@ -167,7 +168,7 @@ export const organizationSchema = {
   "@type": "Organization",
   name: siteConfig.name,
   url: siteConfig.url,
-  logo: `${siteConfig.url}/logo.svg`,
+  logo: `${siteConfig.url}/logo.png`,
   sameAs: [
     siteConfig.linkedin,
     siteConfig.github,
@@ -231,16 +232,18 @@ export function generateProjectSchema(project: {
   description: string;
   slug: string;
   image?: string;
+  heroImage?: string;
   datePublished: string;
   author: string;
 }): object {
+  const image = project.image || project.heroImage;
   return {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
     name: project.title,
     description: project.description,
     url: `${siteConfig.url}/work/${project.slug}`,
-    image: project.image ? `${siteConfig.url}${project.image}` : undefined,
+    image: image ? `${siteConfig.url}${image}` : undefined,
     datePublished: project.datePublished,
     author: {
       "@type": "Organization",
@@ -269,7 +272,7 @@ export function generateArticleSchema(article: Article): object {
       name: siteConfig.name,
       logo: {
         "@type": "ImageObject",
-        url: `${siteConfig.url}/logo.svg`,
+        url: `${siteConfig.url}/logo.png`,
       },
     },
   };

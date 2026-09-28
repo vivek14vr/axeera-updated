@@ -1,7 +1,6 @@
 "use client";
 
-import { motion, useScroll, useSpring, useTransform } from "motion/react";
-import { useRef } from "react";
+import { motion } from "motion/react";
 import Link from "next/link";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
@@ -10,27 +9,21 @@ import { ScrollReveal } from "@/components/animations/scroll-reveal";
 import { projects } from "@/data/projects";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useReducedMotion } from "@/hooks/use-reduced-motion";
 
 function ProjectVisual({ project, featured }: { project: (typeof projects)[number]; featured: boolean }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const prefersReducedMotion = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const imageY = useSpring(useTransform(scrollYProgress, [0, 1], [18, -18]), { stiffness: 90, damping: 26 });
-
   return (
-    <div ref={ref} className={cn("relative overflow-hidden rounded-[1.5rem] bg-deep", featured ? "aspect-[16/10]" : "aspect-[4/3]")}>
-      <motion.div style={prefersReducedMotion ? undefined : { y: imageY }} className="absolute -inset-y-5 inset-x-0 will-change-transform">
-        <Image
-          src={project.heroImage}
-          alt={`${project.title} project preview`}
-          fill
-          unoptimized
-          className="object-cover transition-transform duration-700 group-hover:scale-105"
-          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-          priority={featured}
-        />
-      </motion.div>
+    <div className={cn("relative rounded-[1.5rem] bg-deep")}>
+      <Image
+        src={project.heroImage}
+        alt={`${project.title} project preview`}
+        width={project.imageWidth}
+        height={project.imageHeight}
+        unoptimized
+        className="block h-auto w-full object-contain"
+        style={{ width: "100%", height: "auto", objectFit: "contain" }}
+        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+        priority={featured}
+      />
       <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       <div className="absolute bottom-0 left-0 right-0 translate-y-full p-6 transition-transform duration-300 group-hover:translate-y-0">
         <div className="flex items-center gap-2 font-medium text-on-dark">

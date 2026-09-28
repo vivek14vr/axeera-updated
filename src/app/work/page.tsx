@@ -3,7 +3,7 @@ import { WorkPageContent } from "@/components/work/work-page";
 
 export const metadata: Metadata = {
   title: "Our Work",
-  description: "Explore our portfolio of digital products, platforms, and cloud solutions delivered for clients across healthcare, finance, retail, and technology sectors.",
+  description: "Explore real websites and products Axeera has designed and built across legal, education, operations, HR, fashion, and commerce.",
 };
 
 export default function WorkPage() {

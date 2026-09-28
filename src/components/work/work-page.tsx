@@ -3,15 +3,12 @@
 import { motion } from "motion/react";
 import Link from "next/link";
 import Image from "next/image";
-import { FadeUp, StaggerContainer, StaggerItem } from "@/components/animations/fade-up";
-import { ScrollReveal } from "@/components/animations/scroll-reveal";
-import { projects } from "@/data/projects";
-import { industries } from "@/data/navigation";
+import { FadeUp } from "@/components/animations/fade-up";
+import { industries, projects } from "@/data/projects";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Filter } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useState } from "react";
-import { IndustryIcon } from "@/components/shared/icon";
 
 export function WorkPageContent() {
   const [selectedIndustry, setSelectedIndustry] = useState<string>("all");
@@ -19,13 +16,13 @@ export function WorkPageContent() {
 
   const filteredProjects = selectedIndustry === "all"
     ? projects
-    : projects.filter((p) => p.industry.toLowerCase() === selectedIndustry.toLowerCase());
+    : projects.filter((p) => p.industry === selectedIndustry);
 
   return (
     <>
-      <section className="section bg-muted/30 border-b border-border" aria-labelledby="work-hero-heading">
-        <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto text-center">
+      <section className="page-hero section border-b border-white/10" aria-labelledby="work-hero-heading">
+        <div className="mx-auto max-w-[90rem] px-6 lg:px-10">
+          <div className="max-w-4xl">
             <FadeUp delay={0.1}>
               <span className="caption text-primary">Our Portfolio</span>
             </FadeUp>
@@ -35,8 +32,8 @@ export function WorkPageContent() {
               </h1>
             </FadeUp>
             <FadeUp delay={0.3}>
-              <p className="body-lg text-muted-foreground mt-6 max-w-2xl mx-auto">
-                A selection of our work across industries. Each project represents a unique challenge solved with precision and care.
+              <p className="body-lg mt-6 max-w-2xl text-muted-foreground">
+                Real websites and products we have designed and built. Explore the live work, then open a case study for the thinking behind it.
               </p>
             </FadeUp>
           </div>
@@ -67,18 +64,17 @@ export function WorkPageContent() {
                 </button>
               </FadeUp>
               {industries.map((industry, index) => (
-                <FadeUp key={industry.slug} delay={0.2 + index * 0.05}>
+                <FadeUp key={industry} delay={0.2 + index * 0.05}>
                   <button
-                    onClick={() => setSelectedIndustry(industry.slug)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 flex items-center gap-2 ${
-                      selectedIndustry === industry.slug
+                    onClick={() => setSelectedIndustry(industry)}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                      selectedIndustry === industry
                         ? "bg-primary text-primary-foreground shadow-lg"
                         : "bg-surface border border-border hover:border-primary/50"
                     }`}
-                    aria-pressed={selectedIndustry === industry.slug}
+                    aria-pressed={selectedIndustry === industry}
                   >
-                    <IndustryIcon slug={industry.slug} className="h-4 w-4" />
-                    {industry.label}
+                    {industry}
                   </button>
                 </FadeUp>
               ))}
@@ -131,122 +127,106 @@ export function WorkPageContent() {
             </div>
           </div>
 
-          <StaggerContainer staggerDelay={0.1}>
-            {viewMode === "grid" ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredProjects.map((project, index) => (
-                  <StaggerItem key={project.slug}>
-                    <ScrollReveal direction="up" distance={40} threshold={0.1}>
-                      <motion.article
-                        initial={{ opacity: 0, y: 20 }}
-                        whileHover={{ y: -4 }}
-                        transition={{ duration: 0.3 }}
-                        className="group"
-                      >
-                        <Link href={`/work/${project.slug}`} className="block">
-                          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-muted">
-                            <Image
-                              src={project.heroImage}
-                              alt=""
-                              fill
-                              className="object-cover transition-transform duration-700 group-hover:scale-105"
-                              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                            <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                              <div className="flex items-center gap-2 text-white font-medium">
-                                View Case Study
-                                <ArrowRight className="h-4 w-4" />
-                              </div>
-                            </div>
-                          </div>
-                          
-                          <div className="mt-4 space-y-3">
-                            <div className="flex flex-wrap gap-2">
-                              <Badge variant="outline" size="sm">{project.industry}</Badge>
-                              {project.services.slice(0, 2).map((serviceSlug) => (
-                                <Badge key={serviceSlug} variant="secondary" size="sm">
-                                  {serviceSlug.replace("-", " ").replace(/\b\w/g, (l) => l.toUpperCase())}
-                                </Badge>
-                              ))}
-                            </div>
-                            
-                            <h3 className="heading-3 text-2xl group-hover:text-primary transition-colors">
-                              {project.title}
-                            </h3>
-                            
-                            <p className="text-muted-foreground">{project.shortDescription}</p>
-                            
-                            <div className="flex items-center justify-between pt-2">
-                              <span className="text-sm text-muted-foreground">{project.year}</span>
-                              <span className="text-sm text-primary font-medium flex items-center gap-1">
-                                View Details
-                                <ArrowRight className="h-3.5 w-3.5" />
-                              </span>
-                            </div>
-                          </div>
+          {viewMode === "grid" ? (
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {filteredProjects.map((project) => (
+                <motion.article key={project.slug} whileHover={{ y: -4 }} transition={{ duration: 0.3 }} className="group">
+                  <Link href={`/work/${project.slug}`} className="block" aria-label={`Open ${project.title} case study`}>
+                    <div className="relative rounded-2xl bg-muted">
+                      <Image
+                        src={project.heroImage}
+                        alt={`${project.title} project preview`}
+                        width={project.imageWidth}
+                        height={project.imageHeight}
+                        unoptimized
+                        className="block h-auto w-full object-contain"
+                        style={{ width: "100%", height: "auto", objectFit: "contain" }}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                      <div className="absolute bottom-0 left-0 right-0 translate-y-full p-6 transition-transform duration-300 group-hover:translate-y-0">
+                        <div className="flex items-center gap-2 font-medium text-white">
+                          View case study
+                          <ArrowRight className="h-4 w-4" />
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <div className="mt-4 space-y-3">
+                    <div className="flex flex-wrap gap-2">
+                      <Badge variant="outline" size="sm">{project.industry}</Badge>
+                      {project.services.slice(0, 2).map((serviceSlug) => (
+                        <Badge key={serviceSlug} variant="secondary" size="sm">
+                          {serviceSlug.replace("-", " ").replace(/\b\w/g, (l) => l.toUpperCase())}
+                        </Badge>
+                      ))}
+                    </div>
+                    <h3 className="heading-3 text-2xl transition-colors group-hover:text-primary">
+                      <Link href={`/work/${project.slug}`}>{project.title}</Link>
+                    </h3>
+                    <p className="text-muted-foreground">{project.shortDescription}</p>
+                    <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
+                      <span className="text-sm text-muted-foreground">{project.year}</span>
+                      <div className="flex items-center gap-4 text-sm font-medium">
+                        <Link href={`/work/${project.slug}`} className="flex items-center gap-1 text-primary">
+                          Case study <ArrowRight className="h-3.5 w-3.5" />
                         </Link>
-                      </motion.article>
-                    </ScrollReveal>
-                  </StaggerItem>
-                ))}
-              </div>
-            ) : (
-              <div className="space-y-4" role="list">
-                {filteredProjects.map((project, index) => (
-                  <StaggerItem key={project.slug}>
-                    <ScrollReveal direction="up" distance={30} threshold={0.1}>
-                      <motion.article
-                        initial={{ opacity: 0, x: -20 }}
-                        whileHover={{ x: 4 }}
-                        transition={{ duration: 0.3 }}
-                        className="group"
-                        role="listitem"
-                      >
-                        <Link href={`/work/${project.slug}`} className="block">
-                          <div className="flex gap-6 p-4 bg-surface border border-border rounded-2xl hover:border-primary/50 transition-colors duration-300">
-                            <div className="relative w-64 h-36 md:w-80 md:h-45 flex-shrink-0 rounded-xl overflow-hidden bg-muted">
-                              <Image
-                                src={project.heroImage}
-                                alt=""
-                                fill
-                                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                sizes="320px"
-                              />
-                            </div>
-                            <div className="flex-1 flex flex-col justify-center space-y-3">
-                              <div className="flex flex-wrap gap-2">
-                                <Badge variant="outline" size="sm">{project.industry}</Badge>
-                                {project.services.slice(0, 3).map((serviceSlug) => (
-                                  <Badge key={serviceSlug} variant="secondary" size="sm">
-                                    {serviceSlug.replace("-", " ").replace(/\b\w/g, (l) => l.toUpperCase())}
-                                  </Badge>
-                                ))}
-                              </div>
-                              
-                              <h3 className="heading-3 text-xl group-hover:text-primary transition-colors">
-                                {project.title}
-                              </h3>
-                              
-                              <p className="text-muted-foreground">{project.shortDescription}</p>
-                              
-                              <div className="flex items-center justify-between pt-2">
-                                <span className="text-sm text-muted-foreground">{project.year}</span>
-                                <span className="text-sm text-primary font-medium flex items-center gap-1">
-                                  View Details
-                                  <ArrowRight className="h-3.5 w-3.5" />
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                        </Link>
-                      </motion.article>
-                    </ScrollReveal>
-                  </StaggerItem>
-                ))}
-              </div>
-            )}
-          </StaggerContainer>
+                        <a href={project.liveUrl} target="_blank" rel="noreferrer" className="text-foreground underline underline-offset-4 hover:text-primary">
+                          Live project
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </motion.article>
+              ))}
+            </div>
+          ) : (
+            <div className="space-y-4" role="list">
+              {filteredProjects.map((project) => (
+                <motion.article key={project.slug} whileHover={{ x: 4 }} transition={{ duration: 0.3 }} className="group" role="listitem">
+                  <div className="flex flex-col gap-6 rounded-2xl border border-border bg-surface p-4 transition-colors duration-300 hover:border-primary/50 md:flex-row">
+                    <Link href={`/work/${project.slug}`} className="relative block h-48 w-full flex-shrink-0 overflow-hidden rounded-xl bg-muted md:h-36 md:w-80" aria-label={`Open ${project.title} case study`}>
+                      <Image
+                        src={project.heroImage}
+                        alt={`${project.title} project preview`}
+                        width={project.imageWidth}
+                        height={project.imageHeight}
+                        unoptimized
+                        className="h-full w-full object-contain"
+                        sizes="320px"
+                      />
+                    </Link>
+                    <div className="flex flex-1 flex-col justify-center space-y-3">
+                      <div className="flex flex-wrap gap-2">
+                        <Badge variant="outline" size="sm">{project.industry}</Badge>
+                        {project.services.slice(0, 3).map((serviceSlug) => (
+                          <Badge key={serviceSlug} variant="secondary" size="sm">
+                            {serviceSlug.replace("-", " ").replace(/\b\w/g, (l) => l.toUpperCase())}
+                          </Badge>
+                        ))}
+                      </div>
+                      <h3 className="heading-3 text-xl transition-colors group-hover:text-primary">
+                        <Link href={`/work/${project.slug}`}>{project.title}</Link>
+                      </h3>
+                      <p className="text-muted-foreground">{project.shortDescription}</p>
+                      <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
+                        <span className="text-sm text-muted-foreground">{project.year}</span>
+                        <div className="flex items-center gap-4 text-sm font-medium">
+                          <Link href={`/work/${project.slug}`} className="flex items-center gap-1 text-primary">
+                            Case study <ArrowRight className="h-3.5 w-3.5" />
+                          </Link>
+                          <a href={project.liveUrl} target="_blank" rel="noreferrer" className="text-foreground underline underline-offset-4 hover:text-primary">
+                            Live project
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.article>
+              ))}
+            </div>
+          )}
 
           {filteredProjects.length === 0 && (
             <div className="text-center py-16">

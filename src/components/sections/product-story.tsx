@@ -8,9 +8,9 @@ import { useReducedMotion } from "@/hooks/use-reduced-motion";
 type ProductStoryProps = { sectionRef?: RefObject<HTMLDivElement | null> };
 
 const outcomes = [
-  "Northline Commerce — 142% organic growth in six months",
-  "Pulse Health — 4.8 app store rating at launch",
-  "Summit Legal — 38% lift in qualified inquiries",
+  "Jury & Hammer — editorial chambers website",
+  "Phonics Assam — literacy mission and galleries",
+  "PeopleOS — human-centered HRMS experience",
 ];
 
 export function ProductStory({ sectionRef: providedRef }: ProductStoryProps = {}) {
