@@ -1,0 +1,8 @@
+Options -MultiViews
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+RewriteEngine On
+
+# Keep the public API URL clean while the static build serves the PHP handler.
+RewriteRule ^api/contact/?$ api/contact.php [L,NC]

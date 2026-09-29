@@ -3,6 +3,8 @@ import { services } from "@/data/services";
 import { projects } from "@/data/projects";
 import { articles } from "@/data/articles";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://axeera.com";
   const currentDate = new Date();

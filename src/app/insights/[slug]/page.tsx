@@ -1,12 +1,16 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArticleDetailContent } from "@/components/insights/article-detail";
-import { getArticle, getRelatedArticles } from "@/data/articles";
+import { articles, getArticle, getRelatedArticles } from "@/data/articles";
 import { generateArticleMetadata, generateArticleSchema, generateBreadcrumbSchema } from "@/lib/seo";
 import { formatDate } from "@/lib/utils";
 
 interface ArticleDetailPageProps {
   params: Promise<{ slug: string }>;
+}
+
+export function generateStaticParams() {
+  return articles.map((article) => ({ slug: article.slug }));
 }
 
 export async function generateMetadata({ params }: ArticleDetailPageProps): Promise<Metadata> {

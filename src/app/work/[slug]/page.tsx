@@ -1,11 +1,15 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { WorkDetailContent } from "@/components/work/work-detail";
-import { getProject, getRelatedProjects } from "@/data/projects";
+import { getProject, getRelatedProjects, projects } from "@/data/projects";
 import { generateProjectMetadata, generateProjectSchema, generateBreadcrumbSchema } from "@/lib/seo";
 
 interface WorkDetailPageProps {
   params: Promise<{ slug: string }>;
+}
+
+export function generateStaticParams() {
+  return projects.map((project) => ({ slug: project.slug }));
 }
 
 export async function generateMetadata({ params }: WorkDetailPageProps): Promise<Metadata> {
