@@ -12,7 +12,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Label } from "@/components/ui/label";
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/animations/fade-up";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
-import { Mail, MessageCircle, MapPin, MessageSquare, Calendar, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { Mail, MessageCircle, MapPin, Calendar, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { LinkedinIcon } from "@/components/shared/social-icons";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -183,6 +184,24 @@ export function ContactPageContent() {
                       {siteConfig.phone}
                     </a>
                     <p className="text-sm text-muted-foreground mt-1">Message us on WhatsApp</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 p-4 bg-surface border border-border rounded-xl">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <LinkedinIcon className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold">LinkedIn</h3>
+                    <a
+                      href={siteConfig.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline mt-1 block"
+                    >
+                      Follow Axeera
+                    </a>
+                    <p className="text-sm text-muted-foreground mt-1">Follow our latest updates</p>
                   </div>
                 </div>
                 

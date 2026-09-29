@@ -21,7 +21,7 @@ export function Footer() {
             </p>
             <div className="flex flex-wrap gap-4">
               <a
-                href="https://linkedin.com/company/axeera"
+                href={siteConfig.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(

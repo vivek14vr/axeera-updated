@@ -26,9 +26,9 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL("https://axeera.com"),
   icons: {
-    icon: "/logo.png",
-    shortcut: "/logo.png",
-    apple: "/logo.png",
+    icon: "/axeera-favicon.png",
+    shortcut: "/axeera-favicon.png",
+    apple: "/axeera-favicon.png",
   },
   openGraph: {
     type: "website",

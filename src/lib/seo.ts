@@ -7,7 +7,7 @@ export const siteConfig = {
   url: "https://axeera.com",
   ogImage: "/og-image.png",
   twitterHandle: "@axeera",
-  linkedin: "https://linkedin.com/company/axeera",
+  linkedin: "https://www.linkedin.com/company/axeera/",
   github: "https://github.com/axeera",
   email: "info@axeera.com",
   phone: "+91 88265 26768",
