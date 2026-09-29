@@ -88,10 +88,7 @@ export const footerNavigation = {
     { label: "Cookie Policy", href: "/cookies" },
   ],
   social: [
-    { label: "LinkedIn", href: "https://linkedin.com/company/axeera", external: true },
-    { label: "Twitter", href: "https://twitter.com/axeera", external: true },
-    { label: "GitHub", href: "https://github.com/axeera", external: true },
-    { label: "Dribbble", href: "https://dribbble.com/axeera", external: true },
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/axeera/", external: true },
   ],
 };
 

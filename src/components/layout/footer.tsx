@@ -2,8 +2,8 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { footerNavigation, navigation } from "@/data/navigation";
-import { Mail, MessageCircle, MapPin, ArrowRight } from "lucide-react";
-import { TwitterIcon, LinkedinIcon, GithubIcon } from "@/components/shared/social-icons";
+import { Mail, MapPin, ArrowRight } from "lucide-react";
+import { LinkedinIcon, WhatsappIcon } from "@/components/shared/social-icons";
 import { AxeeraLogo } from "@/components/shared/axeera-logo";
 import { siteConfig } from "@/lib/seo";
 
@@ -31,48 +31,6 @@ export function Footer() {
                 aria-label="LinkedIn"
               >
                 <LinkedinIcon className="h-5 w-5" />
-              </a>
-              <a
-                href="https://twitter.com/axeera"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(
-                  "inline-flex items-center justify-center w-10 h-10 rounded-lg bg-surface border border-border",
-                  "hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-200"
-                )}
-                aria-label="Twitter"
-              >
-                <TwitterIcon className="h-5 w-5" />
-              </a>
-              <a
-                href="https://github.com/axeera"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(
-                  "inline-flex items-center justify-center w-10 h-10 rounded-lg bg-surface border border-border",
-                  "hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-200"
-                )}
-                aria-label="GitHub"
-              >
-                <GithubIcon className="h-5 w-5" />
-              </a>
-              <a
-                href="https://dribbble.com/axeera"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(
-                  "inline-flex items-center justify-center w-10 h-10 rounded-lg bg-surface border border-border",
-                  "hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-200"
-                )}
-                aria-label="Dribbble"
-              >
-                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94" stroke="currentColor" strokeWidth="2" fill="none" />
-                  <path d="M21.75 12.84C18.26 17.3 12.93 18.96 7 19.52" stroke="currentColor" strokeWidth="2" fill="none" />
-                  <path d="M8.6 2.97C13.42 3.8 18.2 6.5 20.87 11.2" stroke="currentColor" strokeWidth="2" fill="none" />
-                  <path d="M7.64 21.42C12.13 21 16.7 18.5 19.8 14.4" stroke="currentColor" strokeWidth="2" fill="none" />
-                </svg>
               </a>
             </div>
           </div>
@@ -135,7 +93,7 @@ export function Footer() {
                 </a>
               </div>
               <div className="flex items-start gap-3">
-                <MessageCircle className="h-4 w-4 shrink-0 mt-0.5" aria-hidden="true" />
+                <WhatsappIcon className="h-4 w-4 shrink-0 mt-0.5" />
                 <a
                   href={siteConfig.whatsapp}
                   target="_blank"
@@ -170,11 +128,6 @@ export function Footer() {
           <p className="text-sm text-muted-foreground">
             © {currentYear} Axeera. All rights reserved.
           </p>
-          <div className="flex items-center gap-6 text-sm text-muted-foreground">
-            <span>Built with Next.js, React, TypeScript, and Tailwind CSS</span>
-            <span className="hidden sm:inline">•</span>
-            <span className="hidden sm:inline">Designed & developed by Axeera</span>
-          </div>
         </motion.div>
       </div>
     </footer>
