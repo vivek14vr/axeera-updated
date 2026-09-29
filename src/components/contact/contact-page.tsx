@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "motion/react";
-import { useForm, useWatch } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
@@ -82,43 +82,32 @@ export function ContactPageContent() {
     },
   });
 
-  const watchedService = watch("service");
-  const watchedBudget = watch("budget");
-  const watchedTimeline = watch("timeline");
-
   const onSubmit = async (data: ContactFormData) => {
     setSubmitStatus("submitting");
     setSubmitMessage("");
 
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      
-      // In a real app, this would be an API call
-      // For now, we'll open the default mail client with the form data
-      const subject = `New Project Inquiry: ${data.service}`;
-      const body = [
-        `Name: ${data.name}`,
-        `Email: ${data.email}`,
-        `Company: ${data.company}`,
-        `Phone: ${data.phone || "Not provided"}`,
-        `Service: ${data.service}`,
-        `Budget: ${data.budget}`,
-        `Timeline: ${data.timeline}`,
-        "",
-        "Message:",
-        data.message,
-      ].join("\n");
-      const mailtoLink = `mailto:info@axeera.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      
-      window.location.href = mailtoLink;
-      
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const result = (await response.json()) as { message?: string };
+
+      if (!response.ok) {
+        throw new Error(result.message || "Something went wrong. Please try again.");
+      }
+
       setSubmitStatus("success");
-      setSubmitMessage("Your email client has opened with your inquiry details. Please send the email to complete your submission.");
+      setSubmitMessage("Thanks — your inquiry was sent to Axeera. We’ll get back to you soon.");
       reset();
-    } catch {
+    } catch (error) {
       setSubmitStatus("error");
-      setSubmitMessage("Something went wrong. Please try again or email us directly at info@axeera.com");
+      setSubmitMessage(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong. Please try again or email us directly at info@axeera.com.",
+      );
     }
   };
 
@@ -224,7 +213,7 @@ export function ContactPageContent() {
                       <div className="flex items-start gap-3">
                         <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
                         <div className="text-green-800">
-                          <p className="font-medium">Email client opened</p>
+                          <p className="font-medium">Inquiry sent successfully</p>
                           <p className="text-sm mt-1">{submitMessage}</p>
                         </div>
                       </div>
